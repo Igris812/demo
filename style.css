@@ -1198,3 +1198,68 @@ h2 {
     color: #1f3138;
   }
 }
+/* ANIMATION */
+.info-card {
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* এটি অ্যানিমেশন মসৃণ করবে */
+  overflow-wrap: anywhere;
+}
+
+.info-card:hover {
+  transform: translateY(-8px); /* হোভার করলে কার্ডটি উপরে উঠবে */
+  box-shadow: 0 30px 90px rgba(31, 49, 56, 0.2); /* হোভার করলে শ্যাডো বাছবে */
+}
+
+/* Projects, Conferences, and Certificates Cards Hover Animation */
+.projects .info-card,
+.conferences .conference-grid .info-card,
+.certificates .info-card,
+.stack-list > div,
+.timeline-item,
+.contact-item:not(.static) {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.projects .info-card:hover,
+.conferences .conference-grid .info-card:hover,
+.certificates .info-card:hover,
+.stack-list > div:hover,
+.timeline-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(31, 49, 56, 0.15);
+}
+/* Hero card & Content card hover animation */
+.hero-card,
+.content-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-card:hover,
+.content-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 90px rgba(31, 49, 56, 0.2);
+}
+
+
+
+/* EXPERMENTS*/
+/* কার্ডের ভিতরের টেক্সট জাস্টিফাই বাদ দিয়ে লেফট-অ্যালাইন করে দিচ্ছি যাতে স্পেস না থাকে */
+.info-card,
+.content-card,
+.hero-card,
+.timeline-item,
+.stack-list > div,
+.skill-pill,
+.info-card p,
+.info-card h4,
+.content-card p,
+.timeline-item p,
+.stack-list p {
+  text-align: left !important;
+  text-justify: none;
+  hyphens: none;
+  word-spacing: normal;
+}
