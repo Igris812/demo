@@ -1,44 +1,1566 @@
-const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('.nav-links');
-const navAnchors = document.querySelectorAll('.nav-links a');
+/* Replace the broken import with a valid Google Fonts family line */
+@import url('https://googleapis.com');
 
-menuToggle?.addEventListener('click', () => {
-  const isOpen = navLinks.classList.toggle('open');
-  menuToggle.classList.toggle('open', isOpen);
-  menuToggle.setAttribute('aria-expanded', String(isOpen));
-});
 
-navAnchors.forEach((link) => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    menuToggle?.classList.remove('open');
-    menuToggle?.setAttribute('aria-expanded', 'false');
-  });
-});
+/* Optimized Reveal Profile Configurations */
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 36px, 0);
+  will-change: transform, opacity;
+  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
+              transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
 
-const sections = document.querySelectorAll('main section[id]');
-const updateActiveLink = () => {
-  let current = 'home';
-  sections.forEach((section) => {
-    if (window.scrollY >= section.offsetTop - 120) current = section.id;
-  });
-  navAnchors.forEach((link) => {
-    link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
-  });
-};
+.reveal.visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
 
-window.addEventListener('scroll', updateActiveLink);
-window.addEventListener('load', updateActiveLink);
 
-document.getElementById('year').textContent = new Date().getFullYear();
+:root {
+  /* Color System */
+  --bg: #f3f0eb;
+  --surface: #ffffff;
+  --dark: #1f3138;
+  --muted: #6f7b80;
+  --beige: #b9a688;
+  --beige-light: #e6dbcc;
+  --accent: #ff7043;
+  
+  /* Decorative & Layout Tokens */
+  --shadow: 0 24px 80px rgba(31, 49, 56, 0.14);
+  --radius: 28px;
+  --max-width: 1180px;
+  
+  /* Header Specific Utilities */
+  --header-bg: rgba(243, 240, 235, 0.86);
+  --header-bg-solid: #f3f0eb;
+}
 
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
+/* Global Box-Sizing Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base Document Configuration */
+html {
+  scroll-behavior: smooth;
+  /* Adjusts font size smoothly if user zooms or resizes window */
+  -webkit-text-size-adjust: 100%; 
+}
+
+/* Optimized Performance & Global Body Typography */
+body {
+  font-family: 'Raleway', system-ui, -apple-system,BlinkMacSystemFont,'Segoe UI', sans-serif;
+  background-color: var(--bg);
+  color: var(--dark);
+  line-height: 1.65;
+  
+  /* High-fidelity font rendering optimizations */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Accessible Interactive Base Links */
+a {
+  color: inherit;
+  text-decoration: none;
+  display: inline-block; /* Allows margins/paddings if links act as buttons */
+  transition: color 0.25s ease, opacity 0.25s ease;
+}
+
+/* Smooth Focus State for Accessibility (WCAG Compliant) */
+a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+ 
+
+/* Base resets for images */
+img { 
+  max-width: 100%; 
+  height: auto; /* Ensures aspect ratio is maintained */
+  display: block; 
+} 
+
+/* Reusable structural container */
+.container { 
+  width: min(calc(100% - 40px), var(--max-width)); 
+  margin-inline: auto; 
+} 
+
+/* Fluid sections: Scales down smoothly on mobile devices */
+.section { 
+  padding-block: clamp(60px, 8vw, 110px); 
+  position: relative; 
+  overflow: hidden; 
+} 
+
+/* High-performance sticky header with modern blur fallback */
+.site-header { 
+  position: sticky; 
+  top: 0; 
+  z-index: 100; 
+  background-color: var(--header-bg-solid);
+  border-bottom: 1px solid rgba(31, 49, 56, 0.08); 
+  will-change: transform; /* Triggers GPU for buttery-smooth scrolling */
+} 
+
+@supports (backdrop-filter: blur(1px)) {
+  .site-header {
+    background-color: var(--header-bg);
+    backdrop-filter: blur(18px);
+  }
+}
+
+/* Clean utility alignment for the navbar navigation block */
+.navbar { 
+  width: min(calc(100% - 40px), var(--max-width)); 
+  margin-inline: auto; 
+  min-height: 78px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  gap: 24px; 
+} 
+
+/* Accessible branding element styling */
+.logo { 
+  min-height: 52px; 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 12px; 
+  color: var(--dark); 
+  font-weight: 800; 
+  letter-spacing: 0.02em; 
+  text-decoration: none; /* Prevents text-underlines if logo is a link */
+} 
+
+/* The stylized initial box or graphic indicator inside the logo */
+.logo span { 
+  width: 52px; 
+  height: 52px; 
+  border-radius: 16px; 
+  display: grid; 
+  place-items: center; 
+  background-color: var(--dark); 
+  color: #fff; 
+  letter-spacing: 0.08em; 
+  box-shadow: 0 12px 32px rgba(31, 49, 56, 0.18); 
+}
+
+
+
+ .logo strong {
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2.2vw, 28px);
+  list-style: none;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.nav-links a {
+  position: relative;
+  padding: 8px 0;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.menu-toggle {
+  display: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: var(--dark);
+  margin: 6px auto;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* Fluid Viewports: Uses dvh to prevent layout shifting on mobile browsers */
+.hero {
+  min-height: calc(100dvh - 78px);
+  display: grid;
+  align-items: center;
+  padding: clamp(60px, 8vw, 90px) 0 clamp(80px, 10vw, 120px);
+  container-type: inline-size; /* Context for modern container queries */
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1; /* Ensures background graphics stay behind elements */
+  pointer-events: none; /* Prevents background gradients from trapping user clicks */
+  background: radial-gradient(circle at 10% 20%, color-mix(in srgb, var(--beige) 35%, transparent), transparent 32%), 
+              radial-gradient(circle at 88% 12%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 28%);
+}
+
+.hero-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+  gap: clamp(32px, 5vw, 56px); /* Fluid gap adjustments on small displays */
+  align-items: center;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+h1, h2, h3 {
+  font-family: 'Caladea', Georgia, serif;
+  line-height: 1.05;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6.5vw, 5.9rem);
+  letter-spacing: -0.06em;
+  max-width: 760px;
+}
+
+h2 {
+  font-size: clamp(2.2rem, 5vw, 4.75rem);
+  letter-spacing: -0.045em;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  max-width: 720px;
+  margin-top: 26px;
+  color: var(--muted);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 34px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  font-weight: 800;
+  cursor: pointer;
+  border: 1px solid transparent;
+  
+  /* Hardware rendering layer optimizations for smooth hover */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn:focus-visible,
+.nav-links a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.btn-primary {
+  background: var(--dark);
+  color: #fff;
+  box-shadow: 0 16px 36px color-mix(in srgb, var(--dark) 18%, transparent);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  background: color-mix(in srgb, var(--dark) 90%, #000);
+  box-shadow: 0 20px 40px color-mix(in srgb, var(--dark) 24%, transparent);
+}
+
+.btn-outline {
+  background: color-mix(in srgb, #fff 55%, transparent);
+  border-color: color-mix(in srgb, var(--dark) 18%, transparent);
+  color: var(--dark);
+}
+
+.btn-outline:hover {
+  background: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px color-mix(in srgb, var(--dark) 8%, transparent);
+}
+
+
+/* start form here*/
+ .hero-social {
+  display: flex;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.hero-social a {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  border: 1px solid color-mix(in srgb, var(--dark) 10%, transparent);
+  box-shadow: 0 12px 34px color-mix(in srgb, var(--dark) 9%, transparent);
+  font-size: 1.18rem;
+  
+  /* Hardware rendering layer optimizations for smooth hover */
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-social a:hover {
+  transform: translate3d(0, -4px, 0);
+  background: var(--dark);
+  color: #fff;
+  box-shadow: 0 16px 38px color-mix(in srgb, var(--dark) 16%, transparent);
+}
+
+/* Tactile feedback on click/press */
+.hero-social a:active {
+  transform: translate3d(0, -1px, 0);
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--dark) 12%, transparent);
+}
+
+.hero-card {
+  background: linear-gradient(145deg, #ffffff, #ebe3d7);
+  border: 1px solid color-mix(in srgb, var(--dark) 10%, transparent);
+  box-shadow: var(--shadow);
+  border-radius: 42px;
+  padding: clamp(24px, 4vw, 34px);
+  min-height: 520px;
+  height: auto; /* Fixed: Allows the container to scale fluidly with text changes */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  contain: paint; /* Performance optimization: isolates rendering and paint invalidation scales */
+}
+
+.hero-card::before {
+  content: "";
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: var(--dark);
+  right: -130px;
+  top: -140px;
+  opacity: 0.95;
+  z-index: 1;
+  pointer-events: none; /* Prevents pseudo-elements from obstructing click interactions */
+}
+
+.profile-avatar {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 300px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--dark), #51636b);
+  display: grid;
+  place-items: center;
+  margin: 24px auto;
+  border: 14px solid #fff;
+  box-shadow: 0 24px 60px color-mix(in srgb, var(--dark) 24%, transparent);
+}
+
+.profile-avatar span {
+  font-family: 'Caladea', serif;
+  color: #fff;
+  font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-align: center;
+  line-height: 1.05;
+  padding: 0 22px;
+  overflow-wrap: anywhere;
+}
+
+.profile-info {
+  position: relative;
+  z-index: 2;
+  background: color-mix(in srgb, #fff 75%, transparent);
+  backdrop-filter: blur(8px);
+  border: 1px solid color-mix(in srgb, var(--dark) 10%, transparent);
+  border-radius: 24px;
+  padding: 24px;
+}
+
+.profile-info span {
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.profile-info strong {
+  display: block;
+  font-size: 1.5rem;
+  line-height: 1.25;
+  margin-top: 8px;
+}
+
+.two-column {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: clamp(24px, 5vw, 52px);
+  align-items: center;
+}
+
+.hero-social a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+ .content-card,
+.info-card,
+.contact-list,
+.timeline {
+  background: color-mix(in srgb, var(--surface) 72%, transparent);
+  border: 1px solid color-mix(in srgb, var(--dark) 8%, transparent);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  padding: clamp(22px, 4vw, 34px); /* Fluid internal card cushioning */
+}
+
+.content-card p {
+  font-size: 1.15rem;
+  color: var(--muted);
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 22px;
+  font-weight: 800;
+  color: var(--accent);
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.text-link:hover {
+  opacity: 0.85;
+  transform: translate3d(4px, 0, 0);
+}
+
+.text-link:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.section-heading {
+  max-width: 760px;
+  margin-bottom: 38px;
+}
+
+/* Fixed: Converted rigid desktop grid matrices to fluid auto-scaling channels */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 18px;
+}
+
+.info-card {
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-wrap: anywhere;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              background-color 0.25s ease, 
+              color 0.25s ease;
+}
+
+.info-card:hover {
+  transform: translate3d(0, -6px, 0);
+}
+
+.info-card.dark {
+  background: var(--dark);
+  color: #fff;
+  border-color: transparent;
+}
+
+.info-card.accent {
+  background: var(--beige);
+  color: #fff;
+  border-color: transparent;
+}
+
+.card-number {
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+}
+
+.info-card.dark .card-number, 
+.info-card.accent .card-number {
+  color: #fff;
+}
+
+.info-card h3 {
+  font-size: 1.65rem;
+}
+
+.info-card h4 {
+  font-size: 0.86rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.info-card p {
+  color: inherit;
+  opacity: 0.86;
+  margin-top: auto;
+}
+
+.education {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 36%, transparent), color-mix(in srgb, var(--beige) 17%, transparent));
+}
+
+.timeline {
+  display: grid;
+  gap: 22px;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 22px;
+  align-items: flex-start;
+  padding: 22px;
+  border-radius: 20px;
+  background: color-mix(in srgb, var(--surface) 62%, transparent);
+}
+
+.timeline-item span {
+  font-family: 'Caladea', Georgia, serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--beige);
+  line-height: 1;
+}
+
+.timeline-item h3 {
+  font-size: 1.8rem;
+}
+
+.timeline-item p {
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+/* Fixed: Replaced static column constraints with an adaptive auto-fitting layout grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: 16px;
+}
+
+.skill-pill {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  min-height: 112px;
+  padding: 18px;
+  border-radius: 24px;
+  background: var(--surface);
+  border: 1px solid color-mix(in srgb, var(--dark) 8%, transparent);
+  font-weight: 800;
+  box-shadow: 0 14px 42px color-mix(in srgb, var(--dark) 8%, transparent);
+  overflow-wrap: anywhere;
+}
+
+.skill-pill:nth-child(even) {
+  background: var(--dark);
+  color: #fff;
+}
+
+.skill-pill:nth-child(3n) {
+  background: var(--beige);
+  color: #fff;
+}
+
+.contact {
+  background: var(--dark);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact::before {
+  content: "";
+  position: absolute;
+  right: -120px;
+  bottom: -160px;
+  width: 440px;
+  height: 440px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--beige) 28%, transparent);
+  pointer-events: none;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  gap: 44px;
+  align-items: start;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-intro p:not(.eyebrow) {
+  color: color-mix(in srgb, #fff 76%, transparent);
+  margin: 20px 0 28px;
+  font-size: 1.08rem;
+}
+
+.contact-list {
+  background: var(--surface);
+  color: var(--dark);
+  display: grid;
+  gap: 14px;
+}
+
+.contact-item {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  padding: 18px;
+  border-radius: 20px;
+  border: 1px solid color-mix(in srgb, var(--dark) 8%, transparent);
+  background: #faf8f5;
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              background-color 0.25s ease;
+}
+
+.contact-item:not(.static):hover {
+  transform: translate3d(6px, 0, 0);
+  background: var(--beige-light);
+}
+
+.contact-item i {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: var(--dark);
+  color: #fff;
+  flex: 0 0 44px;
+}
+
+.contact-item strong {
+  display: block;
+  font-size: 1.05rem;
+  color: var(--dark);
+}
+
+.contact-item span {
+  overflow-wrap: anywhere;
+  color: var(--muted);
+}
+
+.footer {
+  background: #13252b;
+  color: #fff;
+  padding: 24px 0;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.footer a {
+  font-weight: 800;
+  color: var(--beige-light);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  will-change: transform, opacity;
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Media Breakpoint Queries */
+@media (max-width: 1024px) {
+  .hero-card {
+    min-height: auto;
+  }
+  
+  .reverse-mobile .section-copy {
+    order: -1;
+  }
+}
+
+@media (max-width: 760px) {
+  .section {
+    padding: 76px 0;
+  }
+  
+  .navbar {
+    min-height: 70px;
+  }
+  
+  .logo strong {
+    display: none;
+  }
+  
+  .menu-toggle {
+    display: block;
+  }
+  
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    left: 20px;
+    right: 20px;
+    display: grid;
+    gap: 4px;
+    padding: 18px;
+    background: var(--surface);
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+    transform: translate3d(0, -20px, 0);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+                opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+                visibility 0.25s ease;
+  }
+  
+  .nav-links.open {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  
+  .nav-links a {
+    display: block;
+    padding: 12px;
+  }
+  
+  .menu-toggle.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  
+  .menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-toggle.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  
+  .hero {
+    padding-top: 64px;
+  }
+  
+  .hero-actions {
+    align-items: stretch;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+  
+  .hero-social {
+    justify-content: center;
+  }
+  
+  .profile-avatar {
+    width: min(100%, 280px);
+    border-width: 10px;
+  }
+  
+  .profile-avatar span {
+    font-size: 2rem;
+  }
+  
+  .profile-info strong {
+    font-size: 1.15rem;
+  }
+  
+  .timeline-item {
+    gap: 14px;
+    padding: 18px;
+  }
+  
+  .timeline-item span {
+    font-size: 2.2rem;
+  }
+  
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .container, 
+  .navbar {
+    width: min(calc(100% - 28px), var(--max-width));
+  }
+  
+  h1 {
+    font-size: clamp(2.45rem, 17vw, 3.2rem);
+  }
+  
+  h2 {
+    font-size: clamp(2rem, 12vw, 2.7rem);
+  }
+  
+  .hero-card {
+    border-radius: 30px;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.98rem;
+  }
+  
+  .contact-item {
+    align-items: flex-start;
+    padding: 15px;
+  }
+}
+
+/* Map Components */
+.map-card {
+  width: 100%;
+  min-height: 260px;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid color-mix(in srgb, var(--dark) 8%, transparent);
+  box-shadow: 0 14px 42px color-mix(in srgb, var(--dark) 8%, transparent);
+  background: #faf8f5;
+}
+
+.map-card iframe {
+  width: 100%;
+  height: 260px;
+  border: 0;
+  display: block;
+}
+
+@media (max-width: 760px) {
+  .map-card {
+    min-height: 220px;
+  }
+  .map-card iframe {
+    height: 220px;
+  }
+}
+
+/* High-Contrast Print Optimization Layers */
+@media print {
+  .site-header,
+  .hero-social,
+  .hero-actions,
+  .footer {
+    display: none !important;
+  }
+  
+  .section {
+    padding: 36px 0;
+  }
+  
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  
+  .contact {
+    background: #fff !important;
+    color: #1f3138 !important;
+  }
+  
+  .contact-intro p:not(.eyebrow) {
+    color: #1f3138 !important;
+  }
+}
+
+/* Expanded Portfolio Structures */
+.projects,
+.conferences,
+.awards {
+  background: color-mix(in srgb, var(--surface) 28%, transparent);
+}
+
+.publications {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--beige) 12%, transparent), color-mix(in srgb, var(--surface) 28%, transparent));
+}
+
+.memberships {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 34%, transparent), color-mix(in srgb, var(--dark) 6%, transparent));
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); /* Fixed: Wrapped minimal bounds to safeguard phone layouts */
+  gap: 20px;
+  container-type: inline-size; /* Added: Layout rendering optimization barrier */
+}
+
+.stack-list {
+  display: grid;
+  gap: 22px;
+  container-type: inline-size;
+}
+
+.stack-list > div {
+  padding: 22px;
+  border-radius: 22px;
+  background: color-mix(in srgb, var(--surface) 62%, transparent);
+  border: 1px solid color-mix(in srgb, var(--dark) 8%, transparent);
+  
+  /* Added: Hardware layer animation profile */
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.25s ease, 
+              background-color 0.25s ease;
+}
+
+/* Added: Fluid card hover interactions for portfolio content blocks */
+.stack-list > div:hover {
+  transform: translate3d(0, -4px, 0);
+  border-color: color-mix(in srgb, var(--dark) 18%, transparent);
+  background: var(--surface);
+}
+
+.stack-list h3 {
+  font-family: 'Caladea', Georgia, serif; /* Fixed: Added font token fallback to mirror typography system */
+  font-size: 1.6rem;
+  line-height: 1.15;
+  margin-bottom: 8px;
+  color: var(--dark);
+}
+
+.stack-list p {
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+
+/* Navigation Modifiers for Medium Viewports */
+@media (min-width: 761px) {
+  .nav-links {
+    gap: 14px;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    max-width: 760px;
+    line-height: 1.2;
+  }
+}
+
+/* High-Contrast Print Optimization Layers */
+@media print {
+  /* Added: Absolute performance fallback override for clean document sheets */
+  *, *::before, *::after {
+    background-image: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  .site-header,
+  .hero-social,
+  .hero-actions,
+  .footer {
+    display: none !important;
+  }
+  
+  .section {
+    padding: 36px 0;
+  }
+  
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  
+  .contact {
+    background: #fff !important;
+    color: #1f3138 !important;
+  }
+  
+  .contact-intro p:not(.eyebrow) {
+    color: #1f3138 !important;
+  }
+
+  .stack-list > div {
+    background: #fff !important;
+    border: 1px solid #1f3138 !important;
+    page-break-inside: avoid; /* Added: Stops card structural contents splitting across print pages */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   1. Structural & Core Component Overrides (Desktop/Base States First)
+   ========================================================================== */
+.navbar {
+  min-height: 86px;
+}
+
+.nav-links {
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+.nav-links a {
+  padding: 5px 0;
+}
+
+.profile-avatar {
+  overflow: hidden;
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* ==========================================================================
+   2. Layout Matrix Elements (Education, Projects & Cards)
+   ========================================================================== */
+.education .timeline {
+  gap: 12px;
+  padding: 22px;
+}
+
+.education .timeline-item {
+  gap: 14px;
+  padding: 14px 16px;
+  min-height: auto;
+}
+
+.education .timeline-item span {
+  font-size: 2.25rem;
+  line-height: 1;
+}
+
+.education .timeline-item h3 {
+  font-size: 1.28rem;
+  line-height: 1.2;
+}
+
+.education .timeline-item p {
+  font-size: 0.95rem;
+  line-height: 1.45;
+  margin-top: 4px;
+}
+
+/* Centralized Grid Cards Profile Configurations */
+.projects .info-card,
+.conferences .conference-grid .info-card {
+  position: relative;
+  min-height: 175px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.projects .info-card .card-number,
+.conferences .conference-grid .info-card .card-number {
+  position: absolute;
+  top: 8px;
+  left: 15px;
+}
+
+.projects .info-card h4,
+.conferences .conference-grid .info-card h4 {
+  margin: 0;
+  max-width: 100%;
+  text-align: center;
+  text-transform: none;
+  letter-spacing: 0.08em;
+  line-height: 1.45;
+}
+
+.projects .info-card p,
+.conferences .conference-grid .info-card p {
+  margin: 0;
+  margin-top: 0;
+  text-align: center;
+}
+
+.certificates .info-card {
+  min-height: 190px;
+  padding: 24px;
+}
+
+.certificates .info-card h4 {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  text-transform: none;
+}
+
+.certificates-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 26px;
+}
+
+/* Clean UI suppression rules for empty components */
+.projects .info-card h3:empty,
+.conferences .conference-grid .info-card h3:empty,
+.certificates .info-card h3:empty {
+  display: none !important;
+}
+
+/* Typography Anchor Token Management */
+h4 a { 
+  color: var(--accent);
+  text-decoration: underline; 
+  text-underline-offset: 3px;
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+} 
+
+h4 a:hover { 
+  opacity: 0.8;
+}
+
+.info-card.dark h4 a,
+.info-card.accent h4 a {
+  color: #fff;
+}
+
+/* ==========================================================================
+   3. Mobile Responsive Adaptations (Conditional Queries Layered Last)
+   ========================================================================== */
+@media (max-width: 760px) {
+  /* Mobile Navigation Handling Layer */
+  .nav-links {
+    max-height: calc(100dvh - 92px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* Added: Enables smooth iOS touch inertia scroll physics */
+  }
+  
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stack-list > div {
+    padding: 18px;
+  }
+  
+  .stack-list h3 {
+    font-size: 1.35rem;
+  }
+
+  /* Compact Adaptive Layout States */
+  .education .timeline { 
+    padding: 18px; 
+    gap: 10px; 
+  } 
+  
+  .education .timeline-item { 
+    padding: 12px 14px; 
+  } 
+  
+  .projects .info-card,
+  .conferences .conference-grid .info-card,
+  .certificates .info-card { 
+    min-height: 160px; 
+    padding: clamp(20px, 5vw, 30px); /* Fixed: Prevent rigid container margins on small displays */
+  }
+
+  /* Hero Content Layout Order Inversions */
+  .hero-grid { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 28px; 
+  } 
+  
+  .hero-card { 
+    order: 1; 
+    width: 100%; 
+  } 
+  
+  .hero-content { 
+    order: 2; 
+    display: flex; 
+    flex-direction: column; 
+    text-align: center; 
+    align-items: center; 
+  } 
+  
+  .hero-content h1 { 
+    order: 1; 
+  } 
+  
+  .hero-content .eyebrow { 
+    order: 2; 
+    margin-top: 14px; 
+    margin-bottom: 0; 
+  } 
+  
+  .hero-subtitle { 
+    order: 3; 
+  } 
+  
+  .hero-actions { 
+    order: 4; 
+    width: 100%; 
+  } 
+  
+  .hero-social { 
+    order: 5; 
+  } 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     .nav-links a{
+        padding:5px 0
     }
-  });
-}, { threshold: 0.14 });
+     .navbar{
+        min-height:86px
+    }
+}
+ @media (max-width:760px){
+     .nav-links{
+        max-height:calc(100vh - 92px);
+        overflow:auto
+    }
+     .feature-grid{
+        grid-template-columns:1fr
+    }
+     .stack-list > div{
+        padding:18px
+    }
+     .stack-list h3{
+        font-size:1.35rem
+    }
+}
+/* Keep nav links in one line */
+ .nav-links{
+     flex-wrap: nowrap;
+     white-space: nowrap;
+}
+ .profile-avatar{
+     overflow: hidden;
+}
+ .profile-avatar img{
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     border-radius: 0%;
+}
+/* Reduced card height only for Conferences & Seminars */
+ .conferences .conference-grid .info-card{
+     min-height:220px;
+     padding:26px;
+}
+ .conferences .conference-grid .info-card h3{
+     font-size:1.35rem;
+}
+ .conferences .conference-grid .info-card p{
+     font-size:.95rem;
+}
+/* Requested compact layout updates */
+ .education .timeline{
+     gap:12px;
+     padding:22px;
+}
+ .education .timeline-item{
+     gap:14px;
+     padding:14px 16px;
+     min-height:auto;
+}
+ .education .timeline-item span{
+     font-size:2.25rem;
+     line-height:1;
+}
+ .education .timeline-item h3{
+     font-size:1.28rem;
+     line-height:1.2;
+}
+ .education .timeline-item p{
+     font-size:.95rem;
+     line-height:1.45;
+     margin-top:4px;
+}
+ .certificates .info-card{
+     min-height:190px;
+     padding:24px;
+}
+ .certificates .info-card h4{
+     font-size:.82rem;
+     line-height:1.5;
+     text-transform:none;
+}
+ .certificates-more{
+     display:flex;
+     justify-content:center;
+     margin-top:26px;
+}
 
-document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+/* indivitual projects cards*/
+
+ .projects .info-card {
+     position: relative;
+     min-height: 175px;
+     padding: 24px;
+     align-items: center;
+     justify-content: center;
+     text-align: center;
+}
+
+.projects .info-card .card-number {
+     position: absolute;
+     top: 8px;
+     left: 15px;
+}
+
+.projects .info-card h4 {
+     margin: 0;
+     max-width: 100%;
+     text-align: center;
+     text-transform: none;
+     letter-spacing: .08em;
+     line-height: 1.45;
+}
+
+.projects .info-card p {
+     margin: 0;
+     text-align: center;
+}
+
+/* indivitual conference cards*/
+
+
+.conferences .conference-grid .info-card {
+     position: relative;
+     min-height: 175px;
+     padding: 24px;
+     align-items: center;
+     justify-content: center;
+     text-align: center;
+}
+
+.conferences .conference-grid .info-card .card-number {
+     position: absolute;
+     top: 8px;
+     left: 15px;
+}
+
+.conferences .conference-grid .info-card h4 {
+     margin: 0;
+     max-width: 100%;
+     text-align: center;
+     text-transform: none;
+     letter-spacing: .08em;
+     line-height: 1.45;
+}
+
+.conferences .conference-grid .info-card p {
+     margin: 0;
+     text-align: center;
+}
+
+
+
+
+
+ /* Individual rules for empty h3 elements */
+.projects .info-card h3:empty {
+    display: none;
+}
+
+.conferences .conference-grid .info-card h3:empty {
+    display: none;
+}
+
+.certificates .info-card h3:empty {
+    display: none;
+}
+
+/* Responsive styles for mobile screens */ 
+@media (max-width: 760px) { 
+  .education .timeline { padding: 18px; gap: 10px; } 
+  .education .timeline-item { padding: 12px 14px; } 
+  /* Styles apply only to project info cards */
+  .projects .info-card { min-height: 160px; padding: 30px; } 
+  /* Styles apply only to conference info cards */
+  .conferences .conference-grid .info-card { min-height: 160px; padding: 30px; } 
+  /* Styles apply only to certificate info cards */
+  .certificates .info-card { min-height: 160px; padding: 30px; } 
+}
+
+/* Mobile hero order update: profile card first, then name, then Online Portfolio */ 
+@media (max-width:760px){ 
+  .hero-grid{ display:flex; flex-direction:column; gap:28px; } 
+  .hero-card{ order:1; width:100%; } 
+  .hero-content{ order:2; display:flex; flex-direction:column; text-align:center; align-items:center; } 
+  .hero-content h1{ order:1; } 
+  .hero-content .eyebrow{ order:2; margin-top:14px; margin-bottom:0; } 
+  .hero-subtitle{ order:3; } 
+  .hero-actions{ order:4; width:100%; } 
+  .hero-social{ order:5; } 
+}
+
+/* Target the link inside the h4 tag */ 
+h4 a { color: #0000ee !important; /* Standard browser link blue */ text-decoration: underline; /* Ensures it is underlined */ } 
+/* Optional: Style for when the link has been clicked before */ 
+h4 a:visited { color: #551a8b !important; /* Standard browser visited purple */ } 
+/* Optional: Style for when the mouse hovers over it */ 
+h4 a:hover { color: #0056b3 !important; /* Slightly darker blue on hover */ }
+
