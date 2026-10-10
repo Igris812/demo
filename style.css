@@ -238,17 +238,22 @@ h1 {
   letter-spacing: -0.06em;
   max-width: 760px;
 }
-
+/* EVERY SECTION BOLD POINTS TEXT SIZE*/
 h2 {
-  font-size: clamp(2.2rem, 5vw, 4.75rem);
+  font-size: clamp(2.2rem, 3.5vw, 4.75rem);
   letter-spacing: -0.045em;
 }
+
+
 
 .hero-subtitle {
   font-size: clamp(1rem, 1.5vw, 1.25rem);
   max-width: 720px;
   margin-top: 26px;
   color: var(--muted);
+  text-align: justify;
+  hyphens: auto;       /* Breaks long words up with hyphens */
+  lang: en;            /* Ensure your HTML element has a language attribute for this to work */
 }
 
 .hero-actions {
@@ -451,11 +456,15 @@ h2 {
   box-shadow: var(--shadow);
   border-radius: var(--radius);
   padding: clamp(22px, 4vw, 34px); /* Fluid internal card cushioning */
+  
 }
 
 .content-card p {
   font-size: 1.15rem;
   color: var(--muted);
+  text-align: justify;
+  hyphens: auto;       /* Breaks long words up with hyphens */
+  lang: en;            /* Ensure your HTML element has a language attribute for this to work */
 }
 
 .text-link {
@@ -580,7 +589,9 @@ h2 {
 
 .timeline-item p {
   color: var(--muted);
-  margin-top: 6px;
+  margin-top: 6px;text-align: justify;
+  hyphens: auto;       /* Breaks long words up with hyphens */
+  lang: en;            /* Ensure your HTML element has a language attribute for this to work */
 }
 
 /* Fixed: Replaced static column constraints with an adaptive auto-fitting layout grid */
@@ -1548,3 +1559,39 @@ h4 a:visited { color: #551a8b !important; /* Standard browser visited purple */ 
 /* Optional: Style for when the mouse hovers over it */ 
 h4 a:hover { color: #0056b3 !important; /* Slightly darker blue on hover */ }
 
+
+/* ==========================================================================
+   Unified Performance Card Hover Infrastructure (Experience Fixed)
+   ========================================================================== */
+.hero-card,
+.content-card,
+.info-card,
+.contact-list,
+.timeline-item,
+.skill-pill,
+.stack-list > div,
+.map-card {
+  /* Enforce smooth transformation physics on exit */
+  transform: translate3d(0, 0, 0) !important;
+  backface-visibility: hidden;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+/* Force standard subtle lift across every layout panel */
+.hero-card:hover,
+.content-card:hover,
+.info-card:hover,
+.contact-list:hover,
+.timeline-item:hover,
+.skill-pill:hover,
+.stack-list > div:hover,
+.map-card:hover {
+  transform: translate3d(0, -4px, 0) !important;
+  box-shadow: 0 28px 70px rgba(31, 49, 56, 0.16) !important;
+}
+
+/* Safety override to exclude static structural containers */
+.contact-item.static:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
