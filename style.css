@@ -11,7 +11,7 @@
   --accent: #ff7043;
   --shadow: 0 24px 80px rgba(31, 49, 56, 0.14);
   --radius: 28px;
-  --max-width: 1180px;
+  --max-width: 1400px;
 }
 
 * {
@@ -76,8 +76,8 @@ img {
 
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
 }
 
 .feature-grid {
@@ -94,8 +94,8 @@ img {
   box-shadow: var(--shadow);
   border-radius: var(--radius);
   padding: 34px;
-  text-align: justify;
-  hyphens: auto;
+  text-align: left;
+  hyphens: manual;
   lang: en;
 }
 
@@ -175,17 +175,17 @@ h3 {
 }
 
 h1 {
-  font-size: 95px;
-  letter-spacing: -0.06em;
-  max-width: 760px;
+  font-size: clamp(2.8rem, 6vw, 5.8rem);
+  letter-spacing: -0.045em;
+  max-width: 850px;
 }
 
 h2 {
-  font-size: clamp(2.2rem, 3vw, 4.75rem);
-  letter-spacing: -0.045em;
-  text-align: justify;
-  hyphens: auto;
-  lang: en;
+  font-size: clamp(2rem, 4vw, 3.8rem);
+  letter-spacing: normal;
+  text-align: left;
+  hyphens: manual;
+  word-break: normal;
 }
 
 .section-heading {
@@ -637,33 +637,40 @@ h2 {
   position: relative;
   min-height: 175px;
   padding: 24px;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* লেখা বাম দিক থেকে শুরু হবে */
+  justify-content: flex-start;
+  text-align: left;
 }
 
 .projects .info-card .card-number {
-  position: absolute;
-  top: 18px;
-  left: 22px;
+  position: relative; /* ছোট স্ক্রিনে ওভারল্যাপ এড়াতে অ্যাবসোলিউট হটিয়ে দেওয়া হলো */
+  top: auto;
+  left: auto;
+  margin-bottom: 8px;
+}
+
+.projects .info-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+  text-align: left;
 }
 
 .projects .info-card h4 {
-  margin: 0;
+  margin: 0 0 10px 0;
   max-width: 100%;
-  text-align: center;
+  text-align: left;
   text-transform: none;
-  letter-spacing: 0.08em;
-  line-height: 1.45;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  font-size: 0.92rem;
 }
 
 .projects .info-card p {
   margin: 0;
-  text-align: center;
-}
-
-.projects .info-card h3:empty {
-  display: none;
+  text-align: left;
+  font-size: 0.88rem;
 }
 
 
@@ -697,8 +704,8 @@ h2 {
    ========================================================================== */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
 }
 
 .skill-pill {
@@ -747,6 +754,32 @@ h2 {
   justify-content: center;
   text-align: center;
 }
+
+
+
+/* কনফারেন্সের প্রথম এবং শেষ কার্ডের টেক্সট মাঝবরাবর রাখার জন্য */
+.conferences .conference-grid .info-card:first-child,
+.conferences .conference-grid .info-card:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center !important;
+}
+
+/* এই কার্ডগুলোর ভেতরের প্যারাগ্রাফ বা হেডিংগুলোও যেন সেন্টার থাকে */
+.conferences .conference-grid .info-card:first-child h3,
+.conferences .conference-grid .info-card:first-child p,
+.conferences .conference-grid .info-card:first-child h4,
+.conferences .conference-grid .info-card:last-child h3,
+.conferences .conference-grid .info-card:last-child h4 {
+  text-align: center !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
 
 .conferences .conference-grid .info-card .card-number {
   position: absolute;
@@ -942,11 +975,12 @@ h2 {
   .two-column,
   .contact-grid {
     grid-template-columns: 1fr;
+    gap: 40px;
   }
 
   .cards-grid,
   .skills-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(auro-fit, minmax(250px, 1fr));
   }
 
   .hero-card {
@@ -974,6 +1008,16 @@ h2 {
 
   .menu-toggle {
     display: block;
+  }
+
+  .projects .info-card {
+    min-height: auto;
+    padding: 20px;
+  }
+  
+  .projects .info-card .card-number {
+    position: relative;
+    margin-bottom: 6px;
   }
 
   .nav-links {
@@ -1198,6 +1242,33 @@ h2 {
     color: #1f3138;
   }
 }
+
+/* ==========================================================================
+   19. EXTRA LARGE SCREENS & TV DISPLAYS (1800px and Above)
+   ========================================================================== */
+@media (min-width: 1800px) {
+  :root {
+    --max-width: 1600px;
+  }
+
+  body {
+    font-size: 1.15rem;
+  }
+
+  .container {
+    width: min(calc(100% - 80px), var(--max-width));
+  }
+
+  .section {
+    padding: 140px 0;
+  }
+
+  .hero-subtitle {
+    font-size: 1.35rem;
+  }
+}
+
+
 /* ANIMATION */
 .info-card {
   min-height: 320px;
@@ -1246,20 +1317,19 @@ h2 {
 
 
 /* EXPERMENTS*/
-/* কার্ডের ভিতরের টেক্সট জাস্টিফাই বাদ দিয়ে লেফট-অ্যালাইন করে দিচ্ছি যাতে স্পেস না থাকে */
-.info-card,
-.content-card,
-.hero-card,
-.timeline-item,
-.stack-list > div,
-.skill-pill,
-.info-card p,
-.info-card h4,
-.content-card p,
-.timeline-item p,
-.stack-list p {
-  text-align: left !important;
-  text-justify: none;
-  hyphens: none;
+/* EXPERIMENTS FIX */
+*,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+a {
+  text-align: left;
+  text-justify: auto;
   word-spacing: normal;
+  letter-spacing: normal;
 }
