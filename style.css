@@ -95,16 +95,12 @@ img {
   border-radius: var(--radius);
   padding: 34px;
   text-align: left;
-  hyphens: manual;
-  lang: en;
 }
 
 .content-card p {
   font-size: 1.15rem;
   color: #405158;
   text-align: justify;
-  hyphens: auto;
-  lang: en;
 }
 
 .info-card {
@@ -184,8 +180,6 @@ h2 {
   font-size: clamp(2rem, 4vw, 3.8rem);
   letter-spacing: normal;
   text-align: left;
-  hyphens: manual;
-  word-break: normal;
 }
 
 .section-heading {
@@ -792,8 +786,6 @@ h2 {
   margin-top: auto !important;
   line-height: 1.6;
   text-align: justify !important;
-  hyphens: auto;
-  word-break: normal;
 }
 
 
@@ -1015,7 +1007,6 @@ h2 {
   opacity: 0.85;
   text-transform: none;
   text-align: justify;
-  hyphens: auto;
   margin: -5px;
 }
 
@@ -1084,8 +1075,6 @@ h2 {
   line-height: 1.5;
   font-weight: normal;
   text-align: justify;
-  text-justify: inter-word;
-  hyphens: auto;
   margin-top: 14px;
   opacity: 0.85;
 }
@@ -1497,8 +1486,6 @@ h2 {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
   text-align: justify;
-  text-justify: inter-word;
-  hyphens: auto;
 }
 
 
@@ -1789,6 +1776,7 @@ h2 {
   }
 }
 
+/* মোবাইল বা ছোট স্ক্রিনের জন্য গ্রিডগুলো একটার নিচে একটা (single column) করার নিয়ম */
 @media (max-width: 768px) {
   .about-grid,
   .two-column,
@@ -1812,17 +1800,105 @@ h2 {
   .about-text,
   .content-card p {
     text-align: left !important;
-    hyphens: manual !important;
-    word-break: break-word !important;
     font-size: 0.95rem !important;
     line-height: 1.6 !important;
   }
 
   .cards-grid,
   .experience-grid,
-  .awards-grid {
+  .awards-grid,
+  .skills-grid {
     grid-template-columns: 1fr !important;
     gap: 16px !important;
+  }
+
+  .navbar {
+    min-height: 70px;
+  }
+
+  .logo strong {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    left: 20px;
+    right: 20px;
+    display: grid;
+    gap: 4px;
+    padding: 18px;
+    background: #fff;
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+    transform: translateY(-140%);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.25s;
+    max-height: calc(100vh - 92px);
+    overflow: auto;
+  }
+
+  .nav-links.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 12px;
+  }
+
+  .menu-toggle.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .hero {
+    padding-top: 64px;
+  }
+
+  .hero-card {
+    order: 1;
+    width: 100%;
+  }
+
+  .hero-content {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .hero-social {
+    justify-content: center;
+  }
+
+  .profile-avatar {
+    width: min(100%, 280px);
+    border-width: 10px;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
   }
 }
 
@@ -1845,10 +1921,6 @@ h2 {
 
   .contact {
     background: #fff;
-    color: #1f3138;
-  }
-
-  .contact-intro p:not(.eyebrow) {
     color: #1f3138;
   }
 }
@@ -1877,49 +1949,4 @@ h2 {
   .hero-subtitle {
     font-size: 1.35rem;
   }
-}
-
-
-/* ANIMATION */
-.info-card {
-  min-height: 320px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  overflow-wrap: anywhere;
-}
-
-.info-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 30px 90px rgba(31, 49, 56, 0.2);
-}
-
-.projects .info-card,
-.conferences .conference-grid .info-card,
-.certificates .info-card,
-.stack-list > div,
-.timeline-item,
-.contact-item:not(.static) {
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-}
-
-.projects .info-card:hover,
-.conferences .conference-grid .info-card:hover,
-.certificates .info-card:hover,
-.stack-list > div:hover,
-.timeline-item:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(31, 49, 56, 0.15);
-}
-
-.hero-card,
-.content-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.hero-card:hover,
-.content-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 30px 90px rgba(31, 49, 56, 0.2);
 }
