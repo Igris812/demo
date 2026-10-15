@@ -2163,7 +2163,39 @@ h2 {
 
 
  
-  
+  /* মোবাইল স্ক্রিনের জন্য newwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwগ্লোবাল হেডিং সাইজ ফিক্সড করা */
+  h1 {
+    font-size: clamp(2.2rem, 8vw, 3rem) !important;
+    line-height: 1.1 !important;
+  }
+
+  h2 {
+    font-size: clamp(1.8rem, 6vw, 2.4rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  h3 {
+    font-size: 1.25rem !important;
+  }
+
+  p {
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+  }
+
+  /* সেকশন প্যাডিং কমানো যাতে মোবাইলে অনেক লম্বা না দেখায় */
+  .section {
+    padding: 60px 0 !important;
+  }
+
+  /* কার্ডগুলোর প্যাডিং এবং লেআউট ঠিক রাখা */
+  .cards-grid,
+  .experience-grid,
+  .awards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
 
   .navbar {
     min-height: 70px;
