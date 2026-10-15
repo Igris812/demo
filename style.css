@@ -2146,15 +2146,17 @@ h2 {
 
 
 @media (max-width: 1024px) {
-  .hero-grid,
-  .two-column,
-  .about-grid,
-  .contact-grid {
+  .about-grid {
     grid-template-columns: 1fr !important;
-    gap: 30px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 24px !important;
+  }
+  .about-card, .content-card {
+    width: 100% !important;
+    max-width: 100% !important;
   }
 }
-
 
 
 
