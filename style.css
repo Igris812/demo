@@ -872,13 +872,12 @@ h2 {
 }
 
 .education-eyebrow { 
-   text-transform: uppercase;
+  text-transform: uppercase;
   letter-spacing: 0.22em;
-  font-size: 0.82rem;
-  font-weight: 800;
+  font-size: 0.82rem; 
+  font-weight: 800; 
   color: var(--accent);
-  margin-bottom: 14px;
-}
+  margin-bottom: 14px; }
 
 .education-title { 
   font-family: 'Caladea', Georgia,serif; 
@@ -2163,87 +2162,7 @@ h2 {
   }
 
 
-
-
-
-
-
-
-
-
-
-
-
-/* ==========================================================================
-   MOBILE & RESPONSIVE FIXES (Final Override)
-   ========================================================================== */
-@media (max-width: 768px) {
-  /* সব টু-কলাম গ্রিড মোবাইলে এক কলাম করা */
-  .about-grid,
-  .two-column,
-  .hero-grid,
-  .contact-grid {
-    grid-template-columns: 1fr !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 24px !important;
-  }
-}
-  /* এবাউট কার্ড বা কন্টেন্ট কার্ড ফুল উইডথ রাখা */
-  .about-card,
-  .content-card {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 22px !important;
-  }
-
-  /* আইব্রো বা ছোট ক্যাটাগরি লেখাগুলোর সঠিক কালার ও লেটার স্পেসিং ঠিক রাখা */
-  .eyebrow,
-  .about-eyebrow,
-  .research-eyebrow,
-  .experience-eyebrow,
-  .education-eyebrow,
-  .publications-eyebrow,
-  .projects-eyebrow,
-  .certificates-eyebrow,
-  .skills-eyebrow,
-  .language-eyebrow,
-  .conferences-eyebrow,
-  .memberships-eyebrow,
-  .awards-eyebrow,
-  .contact-eyebrow {
-    color: var(--accent) !important;
-    font-size: 0.82rem !important;
-    font-weight: 800 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.22em !important;
-    display: block !important;
-    margin-bottom: 12px !important;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
+ 
   /* মোবাইল স্ক্রিনের জন্য newwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwগ্লোবাল হেডিং সাইজ ফিক্সড করা */
   h1 {
     font-size: clamp(2.2rem, 8vw, 3rem) !important;
