@@ -2142,6 +2142,29 @@ h2 {
     gap: 40px;
   }
 
+
+
+
+@media (max-width: 1024px) {
+  .hero-grid,
+  .two-column,
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+   
   .cards-grid,
   .skills-grid {
     grid-template-columns: repeat(auro-fit, minmax(250px, 1fr));
