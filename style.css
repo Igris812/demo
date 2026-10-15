@@ -2161,7 +2161,31 @@ h2 {
     padding: 76px 0;
   }
 
-
+@media (max-width: 768px) {
+  /* সবকটি সেকশনের ছোট ক্যাটাগরি বা আইব্রো (Eyebrow) লেখার রঙ ও সাইজ ফিক্সড করা */
+  .eyebrow,
+  .about-eyebrow,
+  .research-eyebrow,
+  .experience-eyebrow,
+  .education-eyebrow,
+  .publications-eyebrow,
+  .projects-eyebrow,
+  .certificates-eyebrow,
+  .skills-eyebrow,
+  .language-eyebrow,
+  .conferences-eyebrow,
+  .memberships-eyebrow,
+  .awards-eyebrow,
+  .contact-eyebrow {
+    color: var(--accent) !important; /* অরেঞ্জ/অ্যাকসেন্ট কালার নিশ্চিত করা */
+    font-size: 0.82rem !important;    /* নির্ধারিত সঠিক এক্সাক্ট ফন্ট সাইজ */
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.22em !important;
+    display: block !important;
+    margin-bottom: 10px !important;
+  }
+}
  
   /* মোবাইল স্ক্রিনের জন্য newwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwগ্লোবাল হেডিং সাইজ ফিক্সড করা */
   h1 {
