@@ -500,20 +500,11 @@ h2 {
 /* ==========================================================================
    4. ABOUT SECTION (#about)
    ========================================================================== */
-/*.about {
-  /* Inherits base .section & .two-column layouts */
-/*}
-*/
-
-/* ==========================================================================
-   4. ABOUT SECTION (#about) - Fully Individual & Custom Styling
-   ========================================================================== */
 .about {
-  background: var(--bg); /* ব্যাকগ্রাউন্ড পরিবর্তন করতে চাইলে */
-  padding: 110px 0;      /* সেকশনের প্যাডিং কাস্টমাইজ করতে চাইলে */
+  background: var(--bg);
+  padding: 110px 0;
 }
 
-/* এবাউট সেকশনের ২ কলাম গ্রিড লেআউট */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -521,13 +512,11 @@ h2 {
   align-items: center;
 }
 
-/* বাম পাশের কনটেন্ট এরিয়া */
 .about-left-copy {
   display: flex;
   flex-direction: column;
 }
 
-/* Eyebrow / "About Me" টেক্সট */
 .about-eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.22em;
@@ -537,7 +526,6 @@ h2 {
   margin-bottom: 14px;
 }
 
-/* Title / Main Headline (h2) */
 .about-title {
   font-family: 'Caladea', Georgia, serif;
   font-size: clamp(2rem, 2vw, 3.8rem);
@@ -547,7 +535,6 @@ h2 {
   color: var(--dark);
 }
 
-/* ডান পাশের কন্টেন্ট কার্ড */
 .about-card {
   background: rgba(255, 255, 255, 0.72);
   border: 1px solid rgba(31, 49, 56, 0.08);
@@ -558,13 +545,11 @@ h2 {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* কার্ডের হোভার অ্যানিমেশন */
 .about-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 30px 90px rgba(31, 49, 56, 0.2);
 }
 
-/* কার্ডের ভেতরের প্যারাগ্রাফ (p) */
 .about-text {
   font-size: 1.15rem;
   color: #405158;
@@ -572,7 +557,6 @@ h2 {
   line-height: 1.65;
 }
 
-/* কার্ডের ভেতরের লিংক / "View my experience" */
 .about-link {
   display: inline-flex;
   align-items: center;
@@ -590,56 +574,17 @@ h2 {
 
 /* ==========================================================================
    5. RESEARCH SECTION (#research)
-   ========================================================================== 
-#research.education .timeline {
-  gap: 22px;
-  padding: 34px;
-}
-
-#research.education .timeline-item {
-  display: flex;
-  gap: 22px;
-  align-items: flex-start;
-  padding: 22px;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.62);
-  min-height: auto;
-}
-
-#research.education .timeline-item span {
-  font-family: 'Caladea', serif;
-  font-size: 3rem;
-  font-weight: 700;
-  color: var(--beige);
-  line-height: 1.05;
-}
-
-#research.education .timeline-item h3 {
-  font-size: 1.4rem;
-  line-height: 1.05;
-}
-
-#research.education .timeline-item p {
-  color: #536268;
-  margin-top: 6px;
-  font-size: 1rem;
-}
-
-/* ==========================================================================
-   RESEARCH SECTION (#research) - Fully Custom & Individual Styling
    ========================================================================== */
 #research {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.36), rgba(185, 166, 136, 0.17));
   padding: 110px 0;
 }
 
-/* রিসার্চ সেকশনের হেডার কপি বা টেক্সট ব্লক */
 #research .section-copy {
   display: flex;
   flex-direction: column;
 }
 
-/* রিসার্চ সেকশনের আইব্রো (Eyebrow) */
 .research-eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.22em;
@@ -649,7 +594,6 @@ h2 {
   margin-bottom: 14px;
 }
 
-/* রিসার্চ সেকশনের মেইন টাইটেল (Title) */
 .research-title {
   font-family: 'Caladea', Georgia, serif;
   font-size: clamp(2rem, 2vw, 3.8rem);
@@ -660,7 +604,6 @@ h2 {
   margin-bottom: 20px;
 }
 
-/* রিসার্চ সেকশনের টাইমলাইন ও আইটেম ডিজাইন */
 #research .timeline {
   gap: 22px;
   padding: 34px;
@@ -710,7 +653,6 @@ h2 {
   font-size: 1rem;
 }
 
-/* Research Areas - Centered Card Styling */
 .research-area-card {
   background: rgba(255, 255, 255, 0.72);
   border: 1px solid rgba(31, 49, 56, 0.08);
@@ -741,18 +683,8 @@ h2 {
 }
 
 
- 
-
 /* ==========================================================================
    6. EXPERIENCE SECTION (#experience)
-   ========================================================================== 
-.experience {
-  /* Uses base .cards-grid and .info-card styles 
-}*/
-
-
-/* ==========================================================================
-   EXPERIENCE SECTION (#experience) - Fully Individual & Custom Styling
    ========================================================================== */
 .experience {
   background: var(--bg);
@@ -864,6 +796,7 @@ h2 {
   word-break: normal;
 }
 
+
 /* ==========================================================================
    7. EDUCATION & TRAINING SECTION (#education)
    ========================================================================== */
@@ -872,21 +805,22 @@ h2 {
 }
 
 .education-eyebrow { 
-   text-transform: uppercase;
+  text-transform: uppercase;
   letter-spacing: 0.22em;
-  font-size: 0.82rem;
-  font-weight: 800;
+  font-size: 0.82rem; 
+  font-weight: 800; 
   color: var(--accent);
-  margin-bottom: 14px;
+  margin-bottom: 14px; 
 }
 
 .education-title { 
-  font-family: 'Caladea', Georgia,serif; 
+  font-family: 'Caladea', Georgia, serif; 
   font-size: clamp(2rem, 2vw, 3.8rem);
   letter-spacing: normal;
   text-align: left;
   color: var(--dark); 
-  line-height: 1.05; }
+  line-height: 1.05; 
+}
 
 .education .timeline {
   display: grid;
@@ -932,24 +866,23 @@ h2 {
   background: linear-gradient(180deg, rgba(185, 166, 136, 0.12), rgba(255, 255, 255, 0.28));
 }
 
-
 .publications-eyebrow { 
   text-transform: uppercase;
   letter-spacing: 0.22em;
   font-size: 0.82rem; 
   font-weight: 800; 
   color: var(--accent);
-  margin-bottom: 14px; }
+  margin-bottom: 14px; 
+}
 
 .publications-title { 
-  font-family: 'Caladea', Georgia,serif; 
+  font-family: 'Caladea', Georgia, serif; 
   font-size: clamp(2rem, 3vw, 3.8rem);
   letter-spacing: normal;
   text-align: left;
   color: var(--dark); 
-  line-height: 1.05; }
-
-
+  line-height: 1.05; 
+}
 
 .stack-list {
   display: grid;
@@ -981,6 +914,7 @@ h2 {
 .projects {
   background: rgba(255, 255, 255, 0.28);
 }
+
 .projects-eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.22em;
@@ -999,20 +933,19 @@ h2 {
   line-height: 1.05;
 }
 
-
 .projects .info-card {
   position: relative;
   min-height: 175px;
   padding: 24px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* লেখা বাম দিক থেকে শুরু হবে */
+  align-items: flex-start;
   justify-content: flex-start;
   text-align: left;
 }
 
 .projects .info-card .card-number {
-  position: relative; /* ছোট স্ক্রিনে ওভারল্যাপ এড়াতে অ্যাবসোলিউট হটিয়ে দেওয়া হলো */
+  position: relative;
   top: auto;
   left: auto;
   margin-bottom: 8px;
@@ -1043,31 +976,6 @@ h2 {
 
 /* ==========================================================================
    10. CERTIFICATIONS SECTION (#certificates)
-   ========================================================================== *
-.certificates .info-card {
-  min-height: 190px;
-  padding: 24px;
-}
-
-.certificates .info-card h4 {
-  font-size: 0.82rem;
-  line-height: 1.5;
-  text-transform: none;
-}
-
-.certificates .info-card h3:empty {
-  display: none;
-}
-
-.certificates-more {
-  display: flex;
-  justify-content: center;
-  margin-top: 26px;
-}
-*/
-
-/* ==========================================================================
-   10. CERTIFICATIONS SECTION (#certificates)
    ========================================================================== */
 .certificates .info-card {
   min-height: 180px;
@@ -1075,7 +983,6 @@ h2 {
   display: flex;
   flex-direction: column;
 }
-
 
 .certificates-eyebrow {
   text-transform: uppercase;
@@ -1095,15 +1002,12 @@ h2 {
   line-height: 1.05;
 }
 
-
 .certificates .cards-grid article:nth-child(2) h3 {
   text-align: center;
   justify-content: center;
   align-items: flex-start;
 }
 
-
-/* নিচের টেক্সট (h5 / h4) যা ঠিক সমান্তরাল দাগ থেকে শুরু হবে */
 .certificates .info-card h5 {
   font-size: 0.82rem;
   line-height: 1.5;
@@ -1112,16 +1016,13 @@ h2 {
   text-transform: none;
   text-align: justify;
   hyphens: auto;
-  margin: -5;
+  margin: -5px;
 }
 
-/* কার্ডের ভেতরের h3 এর জন্য নির্দিষ্ট মিনিমাম হাইট নির্ধারণ করা */
 .certificates .info-card h3 {
   font-size: 1.1rem;
   line-height: 1.2;
-   text-align: center;
-  
-  /* ৪টি কার্ডের মধ্যে সর্বোচ্চ ৩ লাইনের h3 এর জায়গা অনুযায়ী ফিক্সড হাইট */
+  text-align: center;
   min-height: 3.5em; 
   display: flex;
   align-items: flex-start;
@@ -1134,42 +1035,6 @@ h2 {
 }
 
 
-
-
-
-/* ==========================================================================
-   11. SKILLS & EXPERTISE SECTION (#skills)
-   ========================================================================== *
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 18px;
-}
-
-.skill-pill {
-  display: grid;
-  place-items: center;
-  text-align: center;
-  min-height: 112px;
-  padding: 18px;
-  border-radius: 24px;
-  background: #fff;
-  border: 1px solid rgba(31, 49, 56, 0.08);
-  font-weight: 800;
-  box-shadow: 0 14px 42px rgba(31, 49, 56, 0.08);
-  overflow-wrap: anywhere;
-}
-
-.skill-pill:nth-child(even) {
-  background: var(--dark);
-  color: #fff;
-}
-
-.skill-pill:nth-child(3n) {
-  background: var(--beige);
-  color: #fff;
-}
-*/
 /* ==========================================================================
    11. SKILLS & EXPERTISE SECTION (#skills)
    ========================================================================== */
@@ -1178,7 +1043,6 @@ h2 {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 18px;
 }
-
 
 .skills-eyebrow {
   text-transform: uppercase;
@@ -1198,10 +1062,8 @@ h2 {
   line-height: 1.05;
 }
 
-
-
 .skill-pill {
-  min-height: 200px; /* মিনিমাম হাইট নির্ধারণ */
+  min-height: 200px;
   padding: 28px;
   border-radius: 24px;
   background: #fff;
@@ -1209,12 +1071,12 @@ h2 {
   font-weight: 800;
   box-shadow: 0 14px 42px rgba(31, 49, 56, 0.08);
   overflow-wrap: anywhere;
-  
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .skill-pill h4 {
@@ -1226,7 +1088,6 @@ h2 {
   hyphens: auto;
   margin-top: 14px;
   opacity: 0.85;
-  overflow-warp: anywhere;
 }
 
 .skill-pill:nth-child(even) {
@@ -1247,29 +1108,20 @@ h2 {
   color: #fff;
 }
 
-
-.skill-pill {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
 .skill-pill:hover {
   transform: translateY(-6px);
   box-shadow: 0 20px 50px rgba(31, 49, 56, 0.15);
 }
 
+
 /* ==========================================================================
-   12. LANGUAGE SKILLS SECTION (#education demo section)
-   ========================================================================== */
-/* Inherits base .education and .timeline styles */
-/* ==========================================================================
-   12. LANGUAGE SKILLS SECTION (#language) - Custom & Individual Styling
+   12. LANGUAGE SKILLS SECTION (#language)
    ========================================================================== */
 #language {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.36), rgba(185, 166, 136, 0.17));
   padding: 110px 0;
 }
 
-/* টাইটেল এবং আইব্রো কাস্টমাইজেশন */
 #language .language-eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.22em;
@@ -1288,6 +1140,7 @@ h2 {
   color: var(--dark);
   margin-bottom: 20px;
 }
+
 #language .language-description {
   font-size: .9rem;
   color: #405158;
@@ -1296,7 +1149,6 @@ h2 {
   text-align: left;
 }
 
-/*টাইমলাইন/আইটেম লিস্ট এরিয়া */
 #language .timeline {
   display: grid;
   gap: 16px;
@@ -1323,7 +1175,6 @@ h2 {
   box-shadow: 0 16px 40px rgba(31, 49, 56, 0.12);
 }
 
-/* সংখ্যা (01, 02) এবং টেক্সটের স্টাইলিং */
 #language .timeline-item span {
   font-family: 'Caladea', serif;
   font-size: 2.25rem;
@@ -1347,76 +1198,7 @@ h2 {
   margin: 0;
 }
 
-/* ==========================================================================
-   13. CONFERENCES & SEMINARS SECTION (#conferences)
-   ========================================================================== *
-.conferences {
-  background: rgba(255, 255, 255, 0.28);
-}
 
-.conferences .conference-grid .info-card {
-  position: relative;
-  min-height: 220px;
-  padding: 26px;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-
-
-/* কনফারেন্সের প্রথম এবং শেষ কার্ডের টেক্সট মাঝবরাবর রাখার জন্য *
-.conferences .conference-grid .info-card:first-child,
-.conferences .conference-grid .info-card:last-child {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center !important;
-}
-
-/* এই কার্ডগুলোর ভেতরের প্যারাগ্রাফ বা হেডিংগুলোও যেন সেন্টার থাকে *
-.conferences .conference-grid .info-card:first-child h3,
-.conferences .conference-grid .info-card:first-child p,
-.conferences .conference-grid .info-card:first-child h4,
-.conferences .conference-grid .info-card:last-child h3,
-.conferences .conference-grid .info-card:last-child h4 {
-  text-align: center !important;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
-
-
-.conferences .conference-grid .info-card .card-number {
-  position: absolute;
-  top: 18px;
-  left: 22px;
-}
-
-.conferences .conference-grid .info-card h3 {
-  font-size: 1.35rem;
-}
-
-.conferences .conference-grid .info-card h4 {
-  margin: 0;
-  max-width: 100%;
-  text-align: center;
-  text-transform: none;
-  letter-spacing: 0.08em;
-  line-height: 1.45;
-}
-
-.conferences .conference-grid .info-card p {
-  margin: 0;
-  text-align: center;
-  font-size: 0.95rem;
-}
-
-.conferences .conference-grid .info-card h3:empty {
-  display: none;
-}
 /* ==========================================================================
    13. CONFERENCES & SEMINARS SECTION (#conferences)
    ========================================================================== */
@@ -1434,7 +1216,6 @@ h2 {
   justify-content: center;
   text-align: center;
 }
-
 
 .conferences-eyebrow {
   text-transform: uppercase;
@@ -1454,10 +1235,6 @@ h2 {
   line-height: 1.05;
 }
 
-
-
-
-/* কনফারেন্সের প্রথম এবং শেষ কার্ডের টেক্সট মাঝবরাবর রাখার জন্য */
 .conferences .conference-grid .info-card:first-child,
 .conferences .conference-grid .info-card:last-child {
   display: flex;
@@ -1467,7 +1244,6 @@ h2 {
   text-align: center !important;
 }
 
-/* এই কার্ডগুলোর ভেতরের প্যারাগ্রাফ বা হেডিংগুলোও যেন সেন্টার থাকে */
 .conferences .conference-grid .info-card:first-child h3,
 .conferences .conference-grid .info-card:first-child p,
 .conferences .conference-grid .info-card:first-child h4,
@@ -1536,12 +1312,8 @@ h2 {
 .conferences .conference-grid .info-card h3:empty {
   display: none;
 }
-/* ==========================================================================
-   14. MEMBERSHIPS SECTION (#memberships)
-   ========================================================================== *
-.memberships {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.34), rgba(31, 49, 56, 0.06));
-}
+
+
 /* ==========================================================================
    14. MEMBERSHIPS SECTION (#memberships)
    ========================================================================== */
@@ -1549,9 +1321,6 @@ h2 {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.34), rgba(31, 49, 56, 0.06));
   padding: 110px 0;
 }
-
-
-
 
 .memberships-eyebrow {
   text-transform: uppercase;
@@ -1564,14 +1333,13 @@ h2 {
 
 .memberships-title {
   font-family: 'Caladea', Georgia, serif;
-  font-size: clamp(2rem, 2vw, 3.8rem); /* Adjust this size as needed */
+  font-size: clamp(2rem, 2vw, 3.8rem);
   line-height: 1.05;
   letter-spacing: normal;
   text-align: left;
   color: var(--dark);
 }
 
-/* Memberships Layout Base (Inherits .two-column grid if needed) */
 .memberships .content-card {
   background: rgba(255, 255, 255, 0.72);
   border: 1px solid rgba(31, 49, 56, 0.08);
@@ -1581,7 +1349,6 @@ h2 {
   text-align: left;
 }
 
-/* Stack List Inside Memberships */
 .memberships .stack-list {
   display: grid;
   gap: 22px;
@@ -1612,7 +1379,6 @@ h2 {
   color: #405158;
 }
 
-/* Section Title & Eyebrow Styling */
 .memberships .eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.22em;
@@ -1622,28 +1388,15 @@ h2 {
   margin-bottom: 14px;
 }
 
-/*.memberships h2 {
-  font-family: 'Caladea', Georgia, serif;
-  font-size: clamp(2rem, 4vw, 3.8rem);
-  line-height: 1.05;
-  color: var(--dark);
-}*/
 
 /* ==========================================================================
    15. AWARDS & HONOURS SECTION (#awards)
-   ========================================================================== *
-.awards {
-  background: rgba(255, 255, 255, 0.28);
-}
-/* ==========================================================================
-   15. AWARDS & HONOURS SECTION (#awards) - Dedicated & Individual Styling
    ========================================================================== */
 .awards {
   background: rgba(255, 255, 255, 0.28);
   padding: 110px 0;
 }
 
-/* সেকশন হেডার ও আইব্রো কাস্টমাইজেশন */
 .awards-heading {
   max-width: 760px;
   margin-bottom: 38px;
@@ -1666,21 +1419,19 @@ h2 {
   color: var(--dark);
 }
 
-/* অ্যাওয়ার্ডস কার্ডের গ্রিড লেআউট */
 .awards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 20px;
 }
 
-/* স্বতন্ত্র অ্যাওয়ার্ডস কার্ড */
 .awards-card {
   background: rgba(255, 255, 255, 0.72);
   border: 1px solid rgba(31, 49, 56, 0.08);
   box-shadow: var(--shadow);
   border-radius: var(--radius);
   padding: 34px;
-  min-height: 380px; /* কার্ডের ন্যূনতম উচ্চতা */
+  min-height: 380px;
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -1694,7 +1445,6 @@ h2 {
   box-shadow: 0 30px 90px rgba(31, 49, 56, 0.2);
 }
 
-/* থিম ভ্যারিয়েন্ট (Dark & Accent) */
 .awards-card.dark {
   background: var(--dark);
   color: #fff;
@@ -1705,7 +1455,6 @@ h2 {
   color: #fff;
 }
 
-/* কার্ড নম্বর (01, 02 ইত্যাদি) */
 .awards-card-number {
   font-weight: 800;
   color: var(--accent);
@@ -1719,13 +1468,12 @@ h2 {
   color: #fff;
 }
 
-/* সমান্তরাল হরিজন্টাল এলাইনমেন্টের জন্য নির্দিষ্ট মান */
 .awards-card h3 {
   font-family: 'Caladea', Georgia, serif;
   font-size: 1.5rem;
   line-height: 1.25;
   margin: 0 0 10px 0 !important;
-  min-height: 5.5rem; /* কার্ডে h3 এর জন্য ফিক্সড উচ্চতা (২ লাইন ধরে রাখবে) */
+  min-height: 5.5rem;
   display: flex;
   align-items: flex-start;
 }
@@ -1737,7 +1485,7 @@ h2 {
   opacity: 0.9;
   line-height: 1.4;
   margin: 0 0 16px 0 !important;
-  min-height: 6.5rem; /* h4 এর জন্য ফিক্সড উচ্চতা */
+  min-height: 6.5rem;
   display: flex;
   align-items: flex-start;
 }
@@ -1747,107 +1495,15 @@ h2 {
   opacity: 0.86;
   line-height: 1.65;
   margin-top: 0 !important;
-  margin-bottom: 0 !important;text-align: justify;
+  margin-bottom: 0 !important;
+  text-align: justify;
   text-justify: inter-word;
   hyphens: auto;
 }
 
+
 /* ==========================================================================
    16. CONTACT SECTION (#contact)
-   ========================================================================== *
-.contact {
-  background: var(--dark);
-  color: #fff;
-}
-
-.contact::before {
-  content: "";
-  position: absolute;
-  right: -120px;
-  bottom: -160px;
-  width: 440px;
-  height: 440px;
-  border-radius: 50%;
-  background: rgba(185, 166, 136, 0.28);
-}
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 44px;
-  align-items: start;
-  position: relative;
-}
-
-.contact-intro p:not(.eyebrow) {
-  color: rgba(255, 255, 255, 0.76);
-  margin: 20px 0 28px;
-  font-size: 1.08rem;
-}
-
-.contact-list {
-  background: #fff;
-  color: var(--dark);
-  display: grid;
-  gap: 14px;
-}
-
-.contact-item {
-  display: flex;
-  gap: 18px;
-  align-items: center;
-  padding: 18px;
-  border-radius: 20px;
-  border: 1px solid rgba(31, 49, 56, 0.08);
-  transition: 0.25s;
-  background: #faf8f5;
-}
-
-.contact-item:not(.static):hover {
-  transform: translateX(6px);
-  background: var(--beige-light);
-}
-
-.contact-item i {
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  display: grid;
-  place-items: center;
-  background: var(--dark);
-  color: #fff;
-  flex: 0 0 44px;
-}
-
-.contact-item strong {
-  display: block;
-  font-size: 1.05rem;
-  color: var(--dark);
-}
-
-.contact-item span {
-  overflow-wrap: anywhere;
-  color: #516168;
-}
-
-.map-card {
-  width: 100%;
-  min-height: 260px;
-  overflow: hidden;
-  border-radius: 20px;
-  border: 1px solid rgba(31, 49, 56, 0.08);
-  box-shadow: 0 14px 42px rgba(31, 49, 56, 0.08);
-  background: #faf8f5;
-}
-
-.map-card iframe {
-  width: 100%;
-  height: 260px;
-  border: 0;
-  display: block;
-}
-/* ==========================================================================
-   16. CONTACT SECTION (#contact) - Final Clean & Optimized CSS
    ========================================================================== */
 .contact {
   background: var(--dark);
@@ -1888,7 +1544,6 @@ h2 {
   font-size: 1.08rem;
 }
 
-/* ডেস্কটপ লেআউট: গ্রিড এরিয়া এবং সমান উচ্চতা নিশ্চিতকরণ */
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1917,21 +1572,19 @@ h2 {
   justify-content: space-between;
 }
 
-/* বাম পাশের ম্যাপ র‍্যাপার কার্ড */
 .map-wrapper-card {
   grid-area: map;
   background: #fff;
   color: var(--dark);
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 30px;
   padding: 34px;
   border-radius: var(--radius, 24px);
   box-shadow: var(--shadow);
   height: 100%;
 }
 
-/* ডান পাশের কন্টাক্ট লিস্ট */
 .contact-list {
   background: #fff;
   color: var(--dark);
@@ -1959,7 +1612,6 @@ h2 {
   background: var(--beige-light, #f3efe6);
 }
 
-/* উপরের লোকেশন আইটেমে হোভার ইফেক্ট */
 .map-wrapper-card .contact-item.static {
   transition: 0.25s ease;
 }
@@ -1991,7 +1643,6 @@ h2 {
   color: #516168;
 }
 
-/* ভেতরের ম্যাপ কার্ড ও হোভার ইফেক্ট */
 .map-card {
   flex-grow: 1;
   width: 100%;
@@ -2003,19 +1654,7 @@ h2 {
   background: #faf8f5;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-/* বাম পাশের ম্যাপ র‍্যাপার কার্ডের প্যাডিং এবং ভেতরের গ্যাপ সমান করা */
-.map-wrapper-card {
-  grid-area: map;
-  background: #fff;
-  color: var(--dark);
-  display: flex;
-  flex-direction: column;
-  gap: 30px; /* আগে 14px ছিল, এটিকে বাড়িয়ে ডানপাশের প্যাডিংয়ের (34px) সাথে সামঞ্জস্যপূর্ণ করতে পারেন অথবা 24px-34px এর মধ্যে রাখতে পারেন */
-  padding: 34px; /* বাইরের চারপাশের প্যাডিং */
-  border-radius: var(--radius, 24px);
-  box-shadow: var(--shadow);
-  height: 100%;
-}
+
 .map-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 18px 48px rgba(31, 49, 56, 0.14);
@@ -2029,30 +1668,6 @@ h2 {
   display: block;
 }
 
-/* মোবাইল বা ছোট স্ক্রিনের জন্য লেআউট (ম্যাপ একদম নিচে চলে যাবে) */
-@media (max-width: 1024px) {
-  .contact-grid {
-    grid-template-columns: 1fr;
-    grid-template-areas: 
-      "intro"
-      "right"
-      "map";
-    gap: 30px;
-  }
-
-  .map-wrapper-card {
-    height: auto;
-  }
-
-  .map-card {
-    min-height: 380px;
-  }
-}
-
-/* ==========================================================================
-   CONTACT SECTION "Send Email" BUTTON (Orange to Hover Effect)
-   ========================================================================== */
-
 .contact .contact-intro .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -2060,25 +1675,22 @@ h2 {
   gap: 12px;
   background-color: var(--accent);
   color: #fff;
-  /* clamp(min, preferred, max) ব্যবহার করলে স্ক্রিন ছোট-বড় হওয়ার সাথে প্যাডিং অটো অ্যাডজাস্ট হবে */
   padding: 14px clamp(24px, 5vw, 60px); 
-  width: 100%; /* চাইলে মোবাইল বা ছোট স্ক্রিনে পুরো উইডথ নেওয়ার জন্য এটি রাখতে পারেন, ফুল উইডথ না চাইলে বাদ দিতে পারেন */
-  max-width: 900px; /* বাটনটি যেন অতিরিক্ত বড় না হয়ে যায় */
+  width: 100%; 
+  max-width: 900px; 
   border-radius: 12px;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
 }
 
-/* মাউস নিলে (Hover) কমলার বিপরীত বা অন্য কালার হবে */
 .contact .contact-intro .btn-primary:hover {
-  background-color: var(--dark, #1f3138); /* হোভার করলে ওয়েবসাইটের ডার্ক থিম বা অন্য রঙে পরিবর্তিত হবে */
+  background-color: var(--dark, #1f3138);
   color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 122, 0, 0.3); /* হালকা কমলার ছায়া রাখতে পারেন */
+  box-shadow: 0 6px 20px rgba(255, 122, 0, 0.3);
 }
 
-/* বাটনের ভেতরের প্লেন আইকন এনিমেশন */
 .contact .contact-intro .btn-primary i {
   transition: transform 0.3s ease;
 }
@@ -2086,6 +1698,7 @@ h2 {
 .contact .contact-intro .btn-primary:hover i {
   transform: translateX(4px) translateY(-2px);
 }
+
 
 /* ==========================================================================
    17. FOOTER SECTION
@@ -2112,8 +1725,6 @@ h2 {
 /* ==========================================================================
    18. MEDIA QUERIES (RESPONSIVENESS & PRINT)
    ========================================================================== */
-
-/* Min-Width Queries */
 @media (min-width: 761px) {
   .nav-links {
     gap: 14px;
@@ -2133,7 +1744,6 @@ h2 {
   }
 }
 
-/* Max-Width: 1024px */
 @media (max-width: 1024px) {
   .hero-grid,
   .two-column,
@@ -2142,34 +1752,9 @@ h2 {
     gap: 40px;
   }
 
-
-
-
-@media (max-width: 1024px) {
-  .about-grid {
-    grid-template-columns: 1fr !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 24px !important;
-  }
-  .about-card, .content-card {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-}
-
-
-
-
-
-
-
-
-
-   
   .cards-grid,
   .skills-grid {
-    grid-template-columns: repeat(auro-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
 
   .hero-card {
@@ -2179,41 +1764,32 @@ h2 {
   .reverse-mobile .section-copy {
     order: -1;
   }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "intro"
+      "right"
+      "map";
+    gap: 30px;
+  }
+
+  .map-wrapper-card {
+    height: auto;
+  }
+
+  .map-card {
+    min-height: 380px;
+  }
 }
 
-/* Max-Width: 760px */
 @media (max-width: 760px) {
   .section {
     padding: 76px 0;
   }
 }
 
-
-
-
-
-
-
 @media (max-width: 768px) {
-  .about-grid {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 24px !important;
-  }
-  .about-card, .content-card {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-}
-
-
-
-
-/* ==========================================================================
-   MOBILE & RESPONSIVE FIXES (Final Override)
-   ========================================================================== */
-@media (max-width: 768px) {
-  /* সব টু-কলাম গ্রিড মোবাইলে এক কলাম করা */
   .about-grid,
   .two-column,
   .hero-grid,
@@ -2224,313 +1800,32 @@ h2 {
     gap: 24px !important;
   }
 
-  /* এবাউট কার্ড বা কন্টেন্ট কার্ড ফুল উইডথ রাখা */
   .about-card,
   .content-card {
     width: 100% !important;
     max-width: 100% !important;
     padding: 22px !important;
+    box-sizing: border-box !important;
   }
 
-  /* আইব্রো বা ছোট ক্যাটাগরি লেখাগুলোর সঠিক কালার ও লেটার স্পেসিং ঠিক রাখা */
-  .eyebrow,
-  .about-eyebrow,
-  .research-eyebrow,
-  .experience-eyebrow,
-  .education-eyebrow,
-  .publications-eyebrow,
-  .projects-eyebrow,
-  .certificates-eyebrow,
-  .skills-eyebrow,
-  .language-eyebrow,
-  .conferences-eyebrow,
-  .memberships-eyebrow,
-  .awards-eyebrow,
-  .contact-eyebrow {
-    color: var(--accent) !important;
-    font-size: 0.82rem !important;
-    font-weight: 800 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.22em !important;
-    display: block !important;
-    margin-bottom: 12px !important;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  /* মোবাইল স্ক্রিনের জন্য newwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwগ্লোবাল হেডিং সাইজ ফিক্সড করা */
-  h1 {
-    font-size: clamp(2.2rem, 8vw, 3rem) !important;
-    line-height: 1.1 !important;
-  }
-
-  h2 {
-    font-size: clamp(1.8rem, 6vw, 2.4rem) !important;
-    line-height: 1.2 !important;
-  }
-
-  h3 {
-    font-size: 1.25rem !important;
-  }
-
-  p {
+  p,
+  .about-text,
+  .content-card p {
+    text-align: left !important;
+    hyphens: manual !important;
+    word-break: break-word !important;
     font-size: 0.95rem !important;
-    line-height: 1.5 !important;
+    line-height: 1.6 !important;
   }
 
-  /* সেকশন প্যাডিং কমানো যাতে মোবাইলে অনেক লম্বা না দেখায় */
-  .section {
-    padding: 60px 0 !important;
-  }
-
-  /* কার্ডগুলোর প্যাডিং এবং লেআউট ঠিক রাখা */
   .cards-grid,
   .experience-grid,
   .awards-grid {
     grid-template-columns: 1fr !important;
     gap: 16px !important;
   }
-
-
-  .navbar {
-    min-height: 70px;
-  }
-
-  .logo strong {
-    display: none;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  .projects .info-card {
-    min-height: auto;
-    padding: 20px;
-  }
-  
-  .projects .info-card .card-number {
-    position: relative;
-    margin-bottom: 6px;
-  }
-
-  .nav-links {
-    position: fixed;
-    top: 70px;
-    left: 20px;
-    right: 20px;
-    display: grid;
-    gap: 4px;
-    padding: 18px;
-    background: #fff;
-    border-radius: 22px;
-    box-shadow: var(--shadow);
-    transform: translateY(-140%);
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.25s;
-    max-height: calc(100vh - 92px);
-    overflow: auto;
-  }
-
-  .nav-links.open {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .nav-links a {
-    display: block;
-    padding: 12px;
-  }
-
-  .menu-toggle.open span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  }
-
-  .menu-toggle.open span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .menu-toggle.open span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-  }
-
-  /* Mobile Hero Structure & Order */
-  .hero {
-    padding-top: 64px;
-  }
-
-  .hero-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-  }
-
-  .hero-card {
-    order: 1;
-    width: 100%;
-  }
-
-  .hero-content {
-    order: 2;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-  }
-
-  .hero-content h1 {
-    order: 1;
-  }
-
-  .hero-content .eyebrow {
-    order: 2;
-    margin-top: 14px;
-    margin-bottom: 0;
-  }
-
-  .hero-subtitle {
-    order: 3;
-  }
-
-  .hero-actions {
-    order: 4;
-    width: 100%;
-    align-items: stretch;
-  }
-
-  .btn {
-    width: 100%;
-  }
-
-  .hero-social {
-    order: 5;
-    justify-content: center;
-  }
-
-  .profile-avatar {
-    width: min(100%, 280px);
-    border-width: 10px;
-  }
-
-  .profile-avatar span {
-    font-size: 2rem;
-  }
-
-  .profile-info strong {
-    font-size: 1.15rem;
-  }
-
-  /* Cards & Grids on Mobile */
-  .cards-grid,
-  .skills-grid,
-  .feature-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .content-card,
-  .info-card,
-  .contact-list,
-  .timeline {
-    padding: 22px;
-  }
-
-  .education .timeline {
-    padding: 18px;
-    gap: 10px;
-  }
-
-  .education .timeline-item {
-    padding: 12px 14px;
-    gap: 14px;
-  }
-
-  .timeline-item span {
-    font-size: 2.2rem;
-  }
-
-  .projects .info-card,
-  .conferences .conference-grid .info-card,
-  .certificates .info-card {
-    min-height: 160px;
-    padding: 22px;
-  }
-
-  .stack-list > div {
-    padding: 18px;
-  }
-
-  .stack-list h3 {
-    font-size: 1.35rem;
-  }
-
-  .map-card {
-    min-height: 220px;
-  }
-
-  .map-card iframe {
-    height: 220px;
-  }
-
-  .footer-inner {
-    flex-direction: column;
-    text-align: center;
-  }
 }
 
-/* Max-Width: 420px */
-@media (max-width: 420px) {
-  .container,
-  .navbar {
-    width: min(calc(100% - 28px), var(--max-width));
-  }
-
-  h1 {
-    font-size: clamp(2.45rem, 17vw, 3.2rem);
-  }
-
-  h2 {
-    font-size: clamp(2rem, 12vw, 2.7rem);
-  }
-
-  .hero-card {
-    padding: 22px;
-    border-radius: 30px;
-  }
-
-  .hero-subtitle {
-    font-size: 0.98rem;
-  }
-
-  .contact-item {
-    align-items: flex-start;
-    padding: 15px;
-  }
-}
-
-/* Print Styles */
 @media print {
   .site-header,
   .hero-social,
@@ -2557,9 +1852,6 @@ h2 {
     color: #1f3138;
   }
 }
-
-
-
 
 
 /* ==========================================================================
@@ -2594,16 +1886,15 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* এটি অ্যানিমেশন মসৃণ করবে */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow-wrap: anywhere;
 }
 
 .info-card:hover {
-  transform: translateY(-8px); /* হোভার করলে কার্ডটি উপরে উঠবে */
-  box-shadow: 0 30px 90px rgba(31, 49, 56, 0.2); /* হোভার করলে শ্যাডো বাছবে */
+  transform: translateY(-8px);
+  box-shadow: 0 30px 90px rgba(31, 49, 56, 0.2);
 }
 
-/* Projects, Conferences, and Certificates Cards Hover Animation */
 .projects .info-card,
 .conferences .conference-grid .info-card,
 .certificates .info-card,
@@ -2621,7 +1912,7 @@ h2 {
   transform: translateY(-6px);
   box-shadow: 0 20px 50px rgba(31, 49, 56, 0.15);
 }
-/* Hero card & Content card hover animation */
+
 .hero-card,
 .content-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -2632,23 +1923,3 @@ h2 {
   transform: translateY(-6px);
   box-shadow: 0 30px 90px rgba(31, 49, 56, 0.2);
 }
-
-
-
-/* EXPERMENTS*/
-/* EXPERIMENTS FIX 
-*,
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-span,
-a {
-  text-align: left;
-  text-justify: auto;
-  word-spacing: normal;
-  letter-spacing: normal;
-}*/
