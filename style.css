@@ -652,7 +652,7 @@ h2 {
 /* রিসার্চ সেকশনের মেইন টাইটেল (Title) */
 .research-title {
   font-family: 'Caladea', Georgia, serif;
-  font-size: clamp(2rem, 4vw, 3.8rem);
+  font-size: clamp(2rem, 2vw, 3.8rem);
   line-height: 1.05;
   letter-spacing: normal;
   text-align: left;
@@ -775,7 +775,7 @@ h2 {
 
 .experience-title {
   font-family: 'Caladea', Georgia, serif;
-  font-size: clamp(2rem, 4vw, 3.8rem);
+  font-size: clamp(2rem, 2vw, 3.8rem);
   letter-spacing: normal;
   text-align: left;
   color: var(--dark);
@@ -873,14 +873,15 @@ h2 {
 
 .education-eyebrow { 
   text-transform: uppercase;
-                    letter-spacing: 0.22em;
-                    font-size: 0.82rem; 
+  letter-spacing: 0.22em;
+  font-size: 0.82rem; 
   font-weight: 800; 
   color: var(--accent);
   margin-bottom: 14px; }
 
 .education-title { 
-  font-family: 'Caladea', Georgia, serif; font-size: clamp(2rem, 3vw, 3.8rem);
+  font-family: 'Caladea', Georgia,serif; 
+  font-size: clamp(2rem, 2vw, 3.8rem);
   letter-spacing: normal;
   text-align: left;
   color: var(--dark); 
@@ -930,6 +931,25 @@ h2 {
   background: linear-gradient(180deg, rgba(185, 166, 136, 0.12), rgba(255, 255, 255, 0.28));
 }
 
+
+.publications-eyebrow { 
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.82rem; 
+  font-weight: 800; 
+  color: var(--accent);
+  margin-bottom: 14px; }
+
+.publications-title { 
+  font-family: 'Caladea', Georgia,serif; 
+  font-size: clamp(2rem, 3vw, 3.8rem);
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--dark); 
+  line-height: 1.05; }
+
+
+
 .stack-list {
   display: grid;
   gap: 22px;
@@ -960,6 +980,24 @@ h2 {
 .projects {
   background: rgba(255, 255, 255, 0.28);
 }
+.projects-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.projects-title {
+  font-family: 'Caladea', Georgia, serif;
+  font-size: clamp(2rem, 2vw, 3.8rem);
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--dark);
+  line-height: 1.05;
+}
+
 
 .projects .info-card {
   position: relative;
@@ -1037,6 +1075,33 @@ h2 {
   flex-direction: column;
 }
 
+
+.certificates-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.certificates-title {
+  font-family: 'Caladea', Georgia, serif;
+  font-size: clamp(2rem, 2vw, 3.8rem);
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--dark);
+  line-height: 1.05;
+}
+
+
+.certificates .cards-grid article:nth-child(2) h3 {
+  text-align: center;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+
 /* নিচের টেক্সট (h5 / h4) যা ঠিক সমান্তরাল দাগ থেকে শুরু হবে */
 .certificates .info-card h5 {
   font-size: 0.82rem;
@@ -1113,6 +1178,27 @@ h2 {
   gap: 18px;
 }
 
+
+.skills-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.skills-title {
+  font-family: 'Caladea', Georgia, serif;
+  font-size: clamp(2rem, 2vw, 3.8rem);
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--dark);
+  line-height: 1.05;
+}
+
+
+
 .skill-pill {
   min-height: 200px; /* মিনিমাম হাইট নির্ধারণ */
   padding: 28px;
@@ -1158,6 +1244,16 @@ h2 {
 
 .skill-pill:nth-child(3n) h4 {
   color: #fff;
+}
+
+
+.skill-pill {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-pill:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(31, 49, 56, 0.15);
 }
 
 /* ==========================================================================
@@ -1338,6 +1434,28 @@ h2 {
   text-align: center;
 }
 
+
+.conferences-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.conferences-title {
+  font-family: 'Caladea', Georgia, serif;
+  font-size: clamp(2rem, 2vw, 3.8rem);
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--dark);
+  line-height: 1.05;
+}
+
+
+
+
 /* কনফারেন্সের প্রথম এবং শেষ কার্ডের টেক্সট মাঝবরাবর রাখার জন্য */
 .conferences .conference-grid .info-card:first-child,
 .conferences .conference-grid .info-card:last-child {
@@ -1431,6 +1549,27 @@ h2 {
   padding: 110px 0;
 }
 
+
+
+
+.memberships-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.memberships-title {
+  font-family: 'Caladea', Georgia, serif;
+  font-size: clamp(2rem, 2vw, 3.8rem); /* Adjust this size as needed */
+  line-height: 1.05;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--dark);
+}
+
 /* Memberships Layout Base (Inherits .two-column grid if needed) */
 .memberships .content-card {
   background: rgba(255, 255, 255, 0.72);
@@ -1482,12 +1621,12 @@ h2 {
   margin-bottom: 14px;
 }
 
-.memberships h2 {
+/*.memberships h2 {
   font-family: 'Caladea', Georgia, serif;
   font-size: clamp(2rem, 4vw, 3.8rem);
   line-height: 1.05;
   color: var(--dark);
-}
+}*/
 
 /* ==========================================================================
    15. AWARDS & HONOURS SECTION (#awards)
@@ -1520,7 +1659,7 @@ h2 {
 
 .awards-title {
   font-family: 'Caladea', Georgia, serif;
-  font-size: clamp(2rem, 4vw, 3.8rem);
+  font-size: clamp(2rem, 2vw, 3.8rem);
   letter-spacing: normal;
   text-align: left;
   color: var(--dark);
@@ -2024,7 +2163,7 @@ h2 {
 
 
  
-  /* মোবাইল স্ক্রিনের জন্য গ্লোবাল হেডিং সাইজ ফিক্সড করা */
+  /* মোবাইল স্ক্রিনের জন্য newwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwগ্লোবাল হেডিং সাইজ ফিক্সড করা */
   h1 {
     font-size: clamp(2.2rem, 8vw, 3rem) !important;
     line-height: 1.1 !important;
