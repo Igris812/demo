@@ -12,6 +12,15 @@
   --shadow: 0 24px 80px rgba(31, 49, 56, 0.14);
   --radius: 28px;
   --max-width: 1400px;
+   p.eyebrow, 
+p[class*="-eyebrow"] {
+  font-size: 0.78rem !important;
+  font-weight: 800 !important;
+  color: var(--accent) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.22em !important;
+  display: block !important;
+}
 }
 
 * {
