@@ -9,9 +9,11 @@
   --beige: #b9a688;
   --beige-light: #e6dbcc;
   --accent: #ff7043;
-  --shadow: 0 24px 80px rgba(31, 49, 56, 0.14);
+  --shadow: 0 16px 40px rgba(31, 49, 56, 0.08);
+  --shadow-hover: 0 24px 60px rgba(31, 49, 56, 0.16);
   --radius: 28px;
   --max-width: 1400px;
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 * {
@@ -40,6 +42,7 @@ a {
 h4 a {
   color: #0000ee !important;
   text-decoration: underline;
+  transition: var(--transition);
 }
 
 h4 a:visited {
@@ -84,7 +87,7 @@ img {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
-/* Generic Content & Info Cards */
+/* Generic Content & Info Cards with Hover */
 .content-card,
 .info-card,
 .contact-list,
@@ -95,6 +98,7 @@ img {
   border-radius: var(--radius);
   padding: 34px;
   text-align: left;
+  transition: var(--transition);
 }
 
 .content-card p {
@@ -108,12 +112,13 @@ img {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  transition: 0.25s;
   overflow-wrap: anywhere;
+  transition: var(--transition);
 }
 
 .info-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
 }
 
 .info-card.dark {
@@ -194,6 +199,11 @@ h2 {
   margin-top: 22px;
   font-weight: 800;
   color: var(--accent);
+  transition: var(--transition);
+}
+
+.text-link:hover {
+  gap: 12px;
 }
 
 /* Buttons */
@@ -206,7 +216,7 @@ h2 {
   padding: 14px 22px;
   border-radius: 999px;
   font-weight: 800;
-  transition: 0.25s;
+  transition: var(--transition);
   border: 1px solid transparent;
   cursor: pointer;
 }
@@ -218,8 +228,9 @@ h2 {
 }
 
 .btn-primary:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   background: #13252b;
+  box-shadow: 0 20px 40px rgba(31, 49, 56, 0.25);
 }
 
 .btn-outline {
@@ -229,7 +240,8 @@ h2 {
 
 .btn-outline:hover {
   background: #fff;
-  transform: translateY(-3px);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(31, 49, 56, 0.1);
 }
 
 /* Scroll Animations */
@@ -243,7 +255,6 @@ h2 {
   opacity: 1;
   transform: translateY(0);
 }
-
 
 /* ==========================================================================
    2. SITE HEADER & NAVIGATION BAR
@@ -275,6 +286,7 @@ h2 {
   color: var(--dark);
   font-weight: 800;
   letter-spacing: 0.02em;
+  transition: var(--transition);
 }
 
 .logo span {
@@ -287,6 +299,12 @@ h2 {
   color: #fff;
   letter-spacing: 0.08em;
   box-shadow: 0 12px 32px rgba(31, 49, 56, 0.18);
+  transition: var(--transition);
+}
+
+.logo:hover span {
+  transform: scale(1.05) rotate(-3deg);
+  background: var(--accent);
 }
 
 .logo strong {
@@ -308,6 +326,7 @@ h2 {
 .nav-links a {
   position: relative;
   padding: 8px 0;
+  transition: var(--transition);
 }
 
 .nav-links a::after {
@@ -318,7 +337,12 @@ h2 {
   width: 0;
   height: 2px;
   background: var(--accent);
-  transition: 0.25s;
+  transition: var(--transition);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent);
 }
 
 .nav-links a:hover::after,
@@ -341,9 +365,8 @@ h2 {
   height: 2px;
   background: var(--dark);
   margin: 6px auto;
-  transition: 0.25s;
+  transition: var(--transition);
 }
-
 
 /* ==========================================================================
    3. HERO SECTION (#home)
@@ -400,13 +423,14 @@ h2 {
   border: 1px solid rgba(31, 49, 56, 0.1);
   box-shadow: 0 12px 34px rgba(31, 49, 56, 0.09);
   font-size: 1.18rem;
-  transition: 0.25s;
+  transition: var(--transition);
 }
 
 .hero-social a:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px) scale(1.08);
   background: var(--dark);
   color: #fff;
+  box-shadow: 0 16px 36px rgba(31, 49, 56, 0.2);
 }
 
 .hero-card {
@@ -421,6 +445,12 @@ h2 {
   justify-content: space-between;
   position: relative;
   overflow: hidden;
+  transition: var(--transition);
+}
+
+.hero-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
 }
 
 .hero-card::before {
@@ -447,24 +477,22 @@ h2 {
   border: 14px solid #fff;
   box-shadow: 0 24px 60px rgba(31, 49, 56, 0.24);
   overflow: hidden;
+  transition: var(--transition);
+}
+
+.hero-card:hover .profile-avatar {
+  transform: scale(1.03);
 }
 
 .profile-avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: var(--transition);
 }
 
-.profile-avatar span {
-  font-family: 'Caladea', serif;
-  color: #fff;
-  font-size: clamp(2rem, 3.6vw, 3.1rem);
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  text-align: center;
-  line-height: 1.05;
-  padding: 0 22px;
-  overflow-wrap: anywhere;
+.profile-avatar:hover img {
+  transform: scale(1.08);
 }
 
 .profile-info {
@@ -489,7 +517,6 @@ h2 {
   line-height: 1.25;
   margin-top: 8px;
 }
-
 
 /* ==========================================================================
    4. ABOUT SECTION (#about)
@@ -536,12 +563,12 @@ h2 {
   border-radius: var(--radius);
   padding: 34px;
   text-align: left;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: var(--transition);
 }
 
 .about-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 30px 90px rgba(31, 49, 56, 0.2);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
 }
 
 .about-text {
@@ -559,12 +586,13 @@ h2 {
   font-weight: 800;
   color: var(--accent);
   text-decoration: none;
+  transition: var(--transition);
 }
 
 .about-link:hover {
+  gap: 12px;
   text-decoration: underline;
 }
-
 
 /* ==========================================================================
    5. RESEARCH SECTION (#research)
@@ -610,6 +638,14 @@ h2 {
   padding: 20px 22px;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.62);
+  transition: var(--transition);
+  border: 1px solid rgba(31, 49, 56, 0.05);
+}
+
+#research .timeline-item:hover {
+  transform: translateX(8px);
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgba(31, 49, 56, 0.08);
 }
 
 #research .timeline-item .round-icon {
@@ -621,14 +657,12 @@ h2 {
   min-height: 14px;
   border-radius: 50%;
   background-color: #009578;
+  transition: var(--transition);
 }
 
-#research .timeline-item span {
-  font-family: 'Caladea', serif;
-  font-size: 3rem;
-  font-weight: 700;
-  color: var(--beige);
-  line-height: 1.05;
+#research .timeline-item:hover .round-icon {
+  transform: scale(1.3);
+  background-color: var(--accent);
 }
 
 #research .timeline-item h3 {
@@ -639,12 +673,6 @@ h2 {
   display: inline-block;
   vertical-align: middle;
   color: var(--dark);
-}
-
-#research .timeline-item p {
-  color: #536268;
-  margin-top: 6px;
-  font-size: 1rem;
 }
 
 .research-area-card {
@@ -660,12 +688,12 @@ h2 {
   justify-content: center;
   align-items: center;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: var(--transition);
 }
 
 .research-area-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 50px rgba(31, 49, 56, 0.15);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
 }
 
 .research-area-card h3 {
@@ -675,7 +703,6 @@ h2 {
   margin: 0;
   text-align: center !important;
 }
-
 
 /* ==========================================================================
    6. EXPERIENCE SECTION (#experience)
@@ -724,7 +751,7 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: var(--transition);
   position: relative;
   overflow-wrap: anywhere;
   text-align: left;
@@ -732,7 +759,7 @@ h2 {
 
 .experience-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 30px 90px rgba(31, 49, 56, 0.2);
+  box-shadow: var(--shadow-hover);
 }
 
 .experience-card.dark {
@@ -788,7 +815,6 @@ h2 {
   text-align: justify !important;
 }
 
-
 /* ==========================================================================
    7. EDUCATION & TRAINING SECTION (#education)
    ========================================================================== */
@@ -828,6 +854,14 @@ h2 {
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.62);
   min-height: auto;
+  transition: var(--transition);
+  border: 1px solid rgba(31, 49, 56, 0.05);
+}
+
+.education .timeline-item:hover {
+  transform: translateX(8px);
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgba(31, 49, 56, 0.08);
 }
 
 .education .timeline-item span {
@@ -836,6 +870,11 @@ h2 {
   font-weight: 700;
   color: var(--beige);
   line-height: 1;
+  transition: var(--transition);
+}
+
+.education .timeline-item:hover span {
+  color: var(--accent);
 }
 
 .education .timeline-item h3 {
@@ -849,7 +888,6 @@ h2 {
   line-height: 1.45;
   margin-top: 4px;
 }
-
 
 /* ==========================================================================
    8. PUBLICATIONS & THESIS SECTION (#publications)
@@ -886,6 +924,13 @@ h2 {
   border-radius: 22px;
   background: rgba(255, 255, 255, 0.62);
   border: 1px solid rgba(31, 49, 56, 0.08);
+  transition: var(--transition);
+}
+
+.stack-list > div:hover {
+  transform: translateY(-6px);
+  background: #ffffff;
+  box-shadow: var(--shadow-hover);
 }
 
 .stack-list h3 {
@@ -898,7 +943,6 @@ h2 {
   font-size: 1.05rem;
   color: #405158;
 }
-
 
 /* ==========================================================================
    9. PROJECTS SECTION (#projects)
@@ -934,6 +978,12 @@ h2 {
   align-items: flex-start;
   justify-content: flex-start;
   text-align: left;
+  transition: var(--transition);
+}
+
+.projects .info-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
 }
 
 .projects .info-card .card-number {
@@ -965,7 +1015,6 @@ h2 {
   font-size: 0.88rem;
 }
 
-
 /* ==========================================================================
    10. CERTIFICATIONS SECTION (#certificates)
    ========================================================================== */
@@ -974,6 +1023,12 @@ h2 {
   padding: 24px;
   display: flex;
   flex-direction: column;
+  transition: var(--transition);
+}
+
+.certificates .info-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
 }
 
 .certificates-eyebrow {
@@ -1019,13 +1074,6 @@ h2 {
   align-items: flex-start;
 }
 
-.certificates-more {
-  display: flex;
-  justify-content: center;
-  margin-top: 26px;
-}
-
-
 /* ==========================================================================
    11. SKILLS & EXPERTISE SECTION (#skills)
    ========================================================================== */
@@ -1067,7 +1115,7 @@ h2 {
   justify-content: center;
   align-items: center;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: var(--transition);
 }
 
 .skill-pill h4 {
@@ -1098,10 +1146,9 @@ h2 {
 }
 
 .skill-pill:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(31, 49, 56, 0.15);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
 }
-
 
 /* ==========================================================================
    12. LANGUAGE SKILLS SECTION (#language)
@@ -1156,11 +1203,12 @@ h2 {
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.62);
   border: 1px solid rgba(31, 49, 56, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: var(--transition);
 }
 
 #language .timeline-item:hover {
-  transform: translateY(-4px);
+  transform: translateX(8px);
+  background: #ffffff;
   box-shadow: 0 16px 40px rgba(31, 49, 56, 0.12);
 }
 
@@ -1170,6 +1218,11 @@ h2 {
   font-weight: 700;
   color: var(--beige);
   line-height: 1;
+  transition: var(--transition);
+}
+
+#language .timeline-item:hover span {
+  color: var(--accent);
 }
 
 #language .timeline-item h3 {
@@ -1187,7 +1240,6 @@ h2 {
   margin: 0;
 }
 
-
 /* ==========================================================================
    13. CONFERENCES & SEMINARS SECTION (#conferences)
    ========================================================================== */
@@ -1204,6 +1256,12 @@ h2 {
   align-items: center;
   justify-content: center;
   text-align: center;
+  transition: var(--transition);
+}
+
+.conferences .conference-grid .info-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
 }
 
 .conferences-eyebrow {
@@ -1231,16 +1289,6 @@ h2 {
   align-items: center;
   justify-content: center;
   text-align: center !important;
-}
-
-.conferences .conference-grid .info-card:first-child h3,
-.conferences .conference-grid .info-card:first-child p,
-.conferences .conference-grid .info-card:first-child h4,
-.conferences .conference-grid .info-card:last-child h3,
-.conferences .conference-grid .info-card:last-child h4 {
-  text-align: center !important;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .conferences .conference-grid .info-card .card-number {
@@ -1298,11 +1346,6 @@ h2 {
   opacity: 0.86;
 }
 
-.conferences .conference-grid .info-card h3:empty {
-  display: none;
-}
-
-
 /* ==========================================================================
    14. MEMBERSHIPS SECTION (#memberships)
    ========================================================================== */
@@ -1348,12 +1391,13 @@ h2 {
   border-radius: 22px;
   background: rgba(255, 255, 255, 0.62);
   border: 1px solid rgba(31, 49, 56, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  transition: var(--transition);
 }
 
 .memberships .stack-list > div:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(31, 49, 56, 0.15);
+  background: #ffffff;
+  box-shadow: var(--shadow-hover);
 }
 
 .memberships .stack-list h3 {
@@ -1362,21 +1406,6 @@ h2 {
   margin-bottom: 8px;
   color: var(--dark);
 }
-
-.memberships .stack-list p {
-  font-size: 1.05rem;
-  color: #405158;
-}
-
-.memberships .eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
-  font-size: 0.82rem;
-  font-weight: 800;
-  color: var(--accent);
-  margin-bottom: 14px;
-}
-
 
 /* ==========================================================================
    15. AWARDS & HONOURS SECTION (#awards)
@@ -1423,7 +1452,7 @@ h2 {
   min-height: 380px;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: var(--transition);
   position: relative;
   overflow-wrap: anywhere;
   text-align: left;
@@ -1431,7 +1460,7 @@ h2 {
 
 .awards-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 30px 90px rgba(31, 49, 56, 0.2);
+  box-shadow: var(--shadow-hover);
 }
 
 .awards-card.dark {
@@ -1487,7 +1516,6 @@ h2 {
   margin-bottom: 0 !important;
   text-align: justify;
 }
-
 
 /* ==========================================================================
    16. CONTACT SECTION (#contact)
@@ -1570,6 +1598,11 @@ h2 {
   border-radius: var(--radius, 24px);
   box-shadow: var(--shadow);
   height: 100%;
+  transition: var(--transition);
+}
+
+.map-wrapper-card:hover {
+  box-shadow: var(--shadow-hover);
 }
 
 .contact-list {
@@ -1580,6 +1613,11 @@ h2 {
   padding: 34px;
   border-radius: var(--radius, 24px);
   box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.contact-list:hover {
+  box-shadow: var(--shadow-hover);
 }
 
 .contact-item {
@@ -1589,23 +1627,15 @@ h2 {
   padding: 15px;
   border-radius: 20px;
   border: 1px solid rgba(31, 49, 56, 0.08);
-  transition: 0.25s;
+  transition: var(--transition);
   background: #faf8f5;
   text-decoration: none;
 }
 
 .contact-item:not(.static):hover {
-  transform: translateX(6px);
+  transform: translateX(8px);
   background: var(--beige-light, #f3efe6);
-}
-
-.map-wrapper-card .contact-item.static {
-  transition: 0.25s ease;
-}
-
-.map-wrapper-card .contact-item.static:hover {
-  transform: translateX(6px);
-  background: var(--beige-light, #f3efe6);
+  border-color: var(--accent);
 }
 
 .contact-item i {
@@ -1617,6 +1647,12 @@ h2 {
   background: var(--dark);
   color: #fff;
   flex: 0 0 44px;
+  transition: var(--transition);
+}
+
+.contact-item:hover i {
+  background: var(--accent);
+  transform: scale(1.1);
 }
 
 .contact-item strong {
@@ -1639,12 +1675,12 @@ h2 {
   border: 1px solid rgba(31, 49, 56, 0.08);
   box-shadow: 0 14px 42px rgba(31, 49, 56, 0.08);
   background: #faf8f5;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: var(--transition);
 }
 
 .map-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 18px 48px rgba(31, 49, 56, 0.14);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
 }
 
 .map-card iframe {
@@ -1668,24 +1704,23 @@ h2 {
   border-radius: 12px;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: var(--transition);
 }
 
 .contact .contact-intro .btn-primary:hover {
-  background-color: var(--dark, #1f3138);
+  background-color: #e65100;
   color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 122, 0, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(255, 112, 67, 0.4);
 }
 
 .contact .contact-intro .btn-primary i {
-  transition: transform 0.3s ease;
+  transition: var(--transition);
 }
 
 .contact .contact-intro .btn-primary:hover i {
-  transform: translateX(4px) translateY(-2px);
+  transform: translateX(6px);
 }
-
 
 /* ==========================================================================
    17. FOOTER SECTION
@@ -1706,8 +1741,12 @@ h2 {
 .footer a {
   font-weight: 800;
   color: var(--beige-light);
+  transition: var(--transition);
 }
 
+.footer a:hover {
+  color: var(--accent);
+}
 
 /* ==========================================================================
    18. MEDIA QUERIES (RESPONSIVENESS & PRINT)
@@ -1776,7 +1815,6 @@ h2 {
   }
 }
 
-/* মোবাইল বা ছোট স্ক্রিনের জন্য গ্রিডগুলো একটার নিচে একটি (single column) করার নিয়ম */
 @media (max-width: 768px) {
   .about-grid,
   .two-column,
@@ -1838,7 +1876,7 @@ h2 {
     transform: translateY(-140%);
     opacity: 0;
     pointer-events: none;
-    transition: 0.25s;
+    transition: var(--transition);
     max-height: calc(100vh - 92px);
     overflow: auto;
   }
@@ -1852,18 +1890,6 @@ h2 {
   .nav-links a {
     display: block;
     padding: 12px;
-  }
-
-  .menu-toggle.open span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  }
-
-  .menu-toggle.open span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .menu-toggle.open span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
   }
 
   .hero {
@@ -1901,30 +1927,6 @@ h2 {
     text-align: center;
   }
 }
-
-@media print {
-  .site-header,
-  .hero-social,
-  .hero-actions,
-  .footer {
-    display: none;
-  }
-
-  .section {
-    padding: 36px 0;
-  }
-
-  .reveal {
-    opacity: 1;
-    transform: none;
-  }
-
-  .contact {
-    background: #fff;
-    color: #1f3138;
-  }
-}
-
 
 /* ==========================================================================
    19. EXTRA LARGE SCREENS & TV DISPLAYS (1800px and Above)
