@@ -810,9 +810,9 @@ h2 {
 .experience-card p {
   font-size: 0.95rem;
   opacity: 0.86;
-  margin-top: auto !important;
+  /*margin-top: auto !important;*/
   line-height: 1.6;
-  text-align: justify !important;
+  text-align: left !important;
 }
 
 /* ==========================================================================
@@ -977,7 +977,7 @@ h2 {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  text-align: left;
+  text-align: center;
   transition: var(--transition);
 }
 
@@ -995,23 +995,38 @@ h2 {
 
 .projects .info-card h3 {
   font-size: 1.25rem;
-  margin-bottom: 8px;
-  text-align: left;
+  margin-bottom: 4px;
+  ttext-align: center;         /* টেক্সট বাম দিক থেকে শুরু হবে */
+  hyphens: auto;           /* ব্রাউজার স্বয়ংক্রিয়ভাবে হাইফেন বসিয়ে শব্দ ভাঙবে */
+  -webkit-hyphens: auto;   /* সাফারি বা ক্রোমের জন্য */
+  -ms-hyphens: auto;       /* ইন্টারনেট এক্সপ্লোরার/উইন্ডোজের জন্য */
+  word-break: normal;      
+  overflow-wrap: anywhere;
 }
 
 .projects .info-card h4 {
   margin: 0 0 10px 0;
   max-width: 100%;
-  text-align: left;
+  text-align: center;
   text-transform: none;
   letter-spacing: 0.02em;
   line-height: 1.4;
   font-size: 0.92rem;
+  hyphens: auto;           
+  -webkit-hyphens: auto;   
+  -ms-hyphens: auto;       
+  word-break: normal;      
+  overflow-wrap: anywhere;
 }
 
 .projects .info-card p {
   margin: 0;
-  text-align: left;
+  text-align: center;        
+  hyphens: auto;           
+  -webkit-hyphens: auto;   
+  -ms-hyphens: auto;       /
+  word-break: normal;      
+  overflow-wrap: anywhere;
   font-size: 0.88rem;
 }
 
@@ -1112,19 +1127,21 @@ h2 {
   overflow-wrap: anywhere;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
   transition: var(--transition);
+  
 }
 
 .skill-pill h4 {
   font-size: 0.9rem;
   line-height: 1.5;
   font-weight: normal;
-  text-align: justify;
+  text-align: center;
   margin-top: 14px;
   opacity: 0.85;
+  
 }
 
 .skill-pill:nth-child(even) {
@@ -1491,7 +1508,7 @@ h2 {
   font-size: 1.5rem;
   line-height: 1.25;
   margin: 0 0 10px 0 !important;
-  min-height: 5.5rem;
+  min-height: rem;
   display: flex;
   align-items: flex-start;
 }
@@ -1503,9 +1520,14 @@ h2 {
   opacity: 0.9;
   line-height: 1.4;
   margin: 0 0 16px 0 !important;
-  min-height: 6.5rem;
+  min-height: rem;
   display: flex;
   align-items: flex-start;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
 }
 
 .awards-card p {
@@ -1514,7 +1536,12 @@ h2 {
   line-height: 1.65;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
-  text-align: justify;
+  text-align: left;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
 }
 
 /* ==========================================================================
