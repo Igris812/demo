@@ -1797,7 +1797,7 @@ h2 {
   }
 }
 
-@media (max-width: 1024px) {
+/*@media (max-width: 1024px) {
   .hero-grid,
   .two-column,
   .contact-grid {
@@ -1835,10 +1835,10 @@ h2 {
     min-height: 380px;
   }
 }
+*/
 
 
-
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   /* মোবাইলের ব্রাউজারে ডেস্কটপ মোডে হিরো সেকশন ফ্লেক্স করে প্রোফাইল কার্ড উপরে পাঠানো হলো */
   .hero-grid {
     display: flex !important;
